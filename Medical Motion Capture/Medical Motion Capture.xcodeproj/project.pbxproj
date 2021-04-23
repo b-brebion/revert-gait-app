@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		143706D62632CE38000C9459 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143706D52632CE38000C9459 /* SignUpVC.swift */; };
+		143706D92632CE6A000C9459 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143706D82632CE6A000C9459 /* LogInVC.swift */; };
+		143706DF26330500000C9459 /* CamViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143706DE26330500000C9459 /* CamViewVC.swift */; };
 		148ACCB12631B152002E3931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB02631B152002E3931 /* AppDelegate.swift */; };
 		148ACCB32631B152002E3931 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB22631B152002E3931 /* SceneDelegate.swift */; };
 		148ACCB52631B152002E3931 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB42631B152002E3931 /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		143706D52632CE38000C9459 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpVC.swift; path = ../../../../../SignUpVC.swift; sourceTree = "<group>"; };
+		143706D82632CE6A000C9459 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogInVC.swift; path = ../../../../../LogInVC.swift; sourceTree = "<group>"; };
+		143706DE26330500000C9459 /* CamViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamViewVC.swift; sourceTree = "<group>"; };
 		148ACCAD2631B152002E3931 /* Medical Motion Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Motion Capture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		148ACCB02631B152002E3931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		148ACCB22631B152002E3931 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,9 @@
 				148ACCB92631B155002E3931 /* Assets.xcassets */,
 				148ACCBB2631B155002E3931 /* LaunchScreen.storyboard */,
 				148ACCBE2631B155002E3931 /* Info.plist */,
+				143706D52632CE38000C9459 /* SignUpVC.swift */,
+				143706D82632CE6A000C9459 /* LogInVC.swift */,
+				143706DE26330500000C9459 /* CamViewVC.swift */,
 			);
 			path = "Medical Motion Capture";
 			sourceTree = "<group>";
@@ -140,6 +149,9 @@
 				148ACCB52631B152002E3931 /* ViewController.swift in Sources */,
 				148ACCB12631B152002E3931 /* AppDelegate.swift in Sources */,
 				148ACCB32631B152002E3931 /* SceneDelegate.swift in Sources */,
+				143706DF26330500000C9459 /* CamViewVC.swift in Sources */,
+				143706D92632CE6A000C9459 /* LogInVC.swift in Sources */,
+				143706D62632CE38000C9459 /* SignUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

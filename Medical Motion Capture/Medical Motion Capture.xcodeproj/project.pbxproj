@@ -10,6 +10,8 @@
 		143706D62632CE38000C9459 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143706D52632CE38000C9459 /* SignUpVC.swift */; };
 		143706D92632CE6A000C9459 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143706D82632CE6A000C9459 /* LogInVC.swift */; };
 		143706DF26330500000C9459 /* CamViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143706DE26330500000C9459 /* CamViewVC.swift */; };
+		145BA174263800D100C1B1FB /* SaveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BA173263800D100C1B1FB /* SaveVC.swift */; };
+		145BA17726380C4000C1B1FB /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BA17626380C3F00C1B1FB /* RNCryptor.swift */; };
 		148ACCB12631B152002E3931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB02631B152002E3931 /* AppDelegate.swift */; };
 		148ACCB32631B152002E3931 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB22631B152002E3931 /* SceneDelegate.swift */; };
 		148ACCB52631B152002E3931 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB42631B152002E3931 /* MenuVC.swift */; };
@@ -22,6 +24,8 @@
 		143706D52632CE38000C9459 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpVC.swift; path = ../../../../../SignUpVC.swift; sourceTree = "<group>"; };
 		143706D82632CE6A000C9459 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogInVC.swift; path = ../../../../../LogInVC.swift; sourceTree = "<group>"; };
 		143706DE26330500000C9459 /* CamViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamViewVC.swift; sourceTree = "<group>"; };
+		145BA173263800D100C1B1FB /* SaveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveVC.swift; sourceTree = "<group>"; };
+		145BA17626380C3F00C1B1FB /* RNCryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNCryptor.swift; sourceTree = "<group>"; };
 		148ACCAD2631B152002E3931 /* Medical Motion Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Motion Capture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		148ACCB02631B152002E3931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		148ACCB22631B152002E3931 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,16 +66,18 @@
 		148ACCAF2631B152002E3931 /* Medical Motion Capture */ = {
 			isa = PBXGroup;
 			children = (
+				148ACCBE2631B155002E3931 /* Info.plist */,
 				148ACCB02631B152002E3931 /* AppDelegate.swift */,
 				148ACCB22631B152002E3931 /* SceneDelegate.swift */,
-				148ACCB42631B152002E3931 /* MenuVC.swift */,
-				148ACCB62631B152002E3931 /* Main.storyboard */,
+				145BA17626380C3F00C1B1FB /* RNCryptor.swift */,
 				148ACCB92631B155002E3931 /* Assets.xcassets */,
+				148ACCB62631B152002E3931 /* Main.storyboard */,
 				148ACCBB2631B155002E3931 /* LaunchScreen.storyboard */,
-				148ACCBE2631B155002E3931 /* Info.plist */,
+				148ACCB42631B152002E3931 /* MenuVC.swift */,
 				143706D52632CE38000C9459 /* SignUpVC.swift */,
 				143706D82632CE6A000C9459 /* LogInVC.swift */,
 				143706DE26330500000C9459 /* CamViewVC.swift */,
+				145BA173263800D100C1B1FB /* SaveVC.swift */,
 			);
 			path = "Medical Motion Capture";
 			sourceTree = "<group>";
@@ -151,6 +157,8 @@
 				148ACCB32631B152002E3931 /* SceneDelegate.swift in Sources */,
 				143706DF26330500000C9459 /* CamViewVC.swift in Sources */,
 				143706D92632CE6A000C9459 /* LogInVC.swift in Sources */,
+				145BA17726380C4000C1B1FB /* RNCryptor.swift in Sources */,
+				145BA174263800D100C1B1FB /* SaveVC.swift in Sources */,
 				143706D62632CE38000C9459 /* SignUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

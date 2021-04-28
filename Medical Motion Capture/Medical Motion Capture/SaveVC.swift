@@ -1,10 +1,3 @@
-//
-//  SaveVC.swift
-//  Medical Motion Capture
-//
-//  Created by Benoit on 27/04/2021.
-//
-
 import UIKit
 
 class SaveVC: UIViewController {

@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Medical Motion Capture
-//
-//  Created by Benoit on 22/04/2021.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

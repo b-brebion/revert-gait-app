@@ -18,6 +18,8 @@
 		148ACCB82631B152002E3931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148ACCB62631B152002E3931 /* Main.storyboard */; };
 		148ACCBA2631B155002E3931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148ACCB92631B155002E3931 /* Assets.xcassets */; };
 		148ACCBD2631B155002E3931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148ACCBB2631B155002E3931 /* LaunchScreen.storyboard */; };
+		1494329826396680005ABAF1 /* MMC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1494329626396680005ABAF1 /* MMC.xcdatamodeld */; };
+		1494329B26396975005ABAF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1494329A26396975005ABAF1 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		148ACCB92631B155002E3931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		148ACCBC2631B155002E3931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		148ACCBE2631B155002E3931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1494329726396680005ABAF1 /* MMC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MMC.xcdatamodel; sourceTree = "<group>"; };
+		1494329A26396975005ABAF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				148ACCB02631B152002E3931 /* AppDelegate.swift */,
 				148ACCB22631B152002E3931 /* SceneDelegate.swift */,
 				145BA17626380C3F00C1B1FB /* RNCryptor.swift */,
+				1494329626396680005ABAF1 /* MMC.xcdatamodeld */,
+				1494329A26396975005ABAF1 /* User.swift */,
 				148ACCB92631B155002E3931 /* Assets.xcassets */,
 				148ACCB62631B152002E3931 /* Main.storyboard */,
 				148ACCBB2631B155002E3931 /* LaunchScreen.storyboard */,
@@ -160,6 +166,8 @@
 				145BA17726380C4000C1B1FB /* RNCryptor.swift in Sources */,
 				145BA174263800D100C1B1FB /* SaveVC.swift in Sources */,
 				143706D62632CE38000C9459 /* SignUpVC.swift in Sources */,
+				1494329B26396975005ABAF1 /* User.swift in Sources */,
+				1494329826396680005ABAF1 /* MMC.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +367,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1494329626396680005ABAF1 /* MMC.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1494329726396680005ABAF1 /* MMC.xcdatamodel */,
+			);
+			currentVersion = 1494329726396680005ABAF1 /* MMC.xcdatamodel */;
+			path = MMC.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 148ACCA52631B152002E3931 /* Project object */;
 }

@@ -4,10 +4,13 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="familyName" optional="YES" attributeType="String"/>
         <attribute name="hospitalID" optional="YES" attributeType="String"/>
+        <attribute name="isConnected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numExamMode" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="saveVideo" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="149"/>
     </elements>
 </model>

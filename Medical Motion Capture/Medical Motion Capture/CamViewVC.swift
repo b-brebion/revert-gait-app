@@ -2,6 +2,8 @@ import UIKit
 
 class CamViewVC: UIViewController {
     
+    @IBOutlet weak var menuButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,13 +18,15 @@ class CamViewVC: UIViewController {
             
             UIAction(title: "Disconnect", image: UIImage(systemName: "power"), attributes: .destructive) { action in
                 //Disconnect Menu Child Selected
+                let user = User.connectedUser()
+                User.connectDisconnect(name: user.name!, familyName: user.familyName!, state: false)
                 let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-                self.navigationController?.setViewControllers([menuVC], animated:true)
-                //self.navigationController?.pushViewController(firstVC, animated: true)
+                menuVC.modalPresentationStyle = .fullScreen
+                self.present(menuVC, animated: true, completion: nil)
             },
         ])
         
-        let pullDownBtn = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), menu: pullDownMenu)
-        navigationItem.rightBarButtonItem = pullDownBtn
+        menuButton.menu = pullDownMenu
+        menuButton.showsMenuAsPrimaryAction = true
     }
 }

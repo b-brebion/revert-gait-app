@@ -71,6 +71,17 @@ class User: NSManagedObject {
         }
     }
     
+    static func changeHospitalID(hospitalID: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "(isConnected == %@)", NSNumber(value: true))
+        let res = try! AppDelegate.viewContext.fetch(fetchRequest)
+        if res.count > 0 {
+            let objectUpdate = res[0] as! NSManagedObject
+            objectUpdate.setValue(hospitalID, forKey: "hospitalID")
+            try? AppDelegate.viewContext.save()
+        }
+    }
+    
     static func deleteAllData() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "User")
         do {

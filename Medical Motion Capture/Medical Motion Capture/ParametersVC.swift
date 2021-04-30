@@ -1,6 +1,11 @@
 import UIKit
 
-class ParametersVC: UIViewController {
+class ParametersVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let screenWidth = UIScreen.main.bounds.width - 10
+    let screenHeight = UIScreen.main.bounds.height / 3
+    
+    var serviceList = ["CHUA", "CHUB", "CHUC", "CUH", "etc..."]
     
     func successAlert() {
         let alert = UIAlertController(title: "Success", message: "The parameter(s) have been successfully changed", preferredStyle: .alert)
@@ -71,6 +76,36 @@ class ParametersVC: UIViewController {
     }
     
     @IBAction func changeHospitalID(_ sender: Any) {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height:screenHeight))
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
+        pickerView.selectRow(serviceList.firstIndex(of: User.connectedUser().hospitalID!)!, inComponent: 0, animated: false)
+        
+        vc.view.addSubview(pickerView)
+        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+
+        let alert = UIAlertController(title: "Select User", message: "", preferredStyle: .actionSheet)
+        
+        // alert.popoverPresentationController?.sourceView = hospitalPickerViewButton
+        // alert.popoverPresentationController?.sourceRect = hospitalPickerViewButton.bounds
+ 
+        alert.setValue(vc, forKey: "contentViewController")
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in
+            User.changeHospitalID(hospitalID: self.serviceList[pickerView.selectedRow(inComponent: 0)])
+            self.successAlert()
+            //self.selectedRow = pickerView.selectedRow(inComponent: 0)
+            //let selected = self.serviceList[self.selectedRow]
+        }))
+        
+        alert.pruneNegativeWidthConstraints()
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func changePwd(_ sender: Any) {
@@ -80,5 +115,30 @@ class ParametersVC: UIViewController {
     }
     
     @IBAction func changeAutoGenerate(_ sender: Any) {
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return serviceList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return serviceList[row]
+    }
+    
+    /*
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
+        label.text = serviceList[row]
+        label.sizeToFit()
+        return label
+    }
+    */
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 30
     }
 }

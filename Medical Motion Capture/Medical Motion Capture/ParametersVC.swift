@@ -2,6 +2,17 @@ import UIKit
 
 class ParametersVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var saveVideoSwitch: UISwitch!
+    @IBOutlet weak var autoGenSwitch: UISwitch!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let user = User.connectedUser()
+        saveVideoSwitch.isOn = user.saveVideo
+        autoGenSwitch.isOn = user.numExamMode
+    }
+    
     let screenWidth = UIScreen.main.bounds.width - 10
     let screenHeight = UIScreen.main.bounds.height / 3
     
@@ -109,12 +120,72 @@ class ParametersVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     @IBAction func changePwd(_ sender: Any) {
+        let alert = UIAlertController(title: "Change password", message: "", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Input your password"
+            textField.isSecureTextEntry = true
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Input your new password"
+            textField.isSecureTextEntry = true
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Confirm your new password"
+            textField.isSecureTextEntry = true
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            let actualPassword = alert.textFields![0].text
+            let newPassword = alert.textFields![1].text
+            let confirmNewPassword = alert.textFields![2].text
+            let user = User.connectedUser()
+            if actualPassword!.trim().isEmpty || newPassword!.trim().isEmpty || confirmNewPassword!.trim().isEmpty {
+                self.errorAlert(msg: "At least one of the three fields has not been completed. The password has not been changed")
+            } else if newPassword != confirmNewPassword {
+                self.errorAlert(msg: "Please type the same new password for both fields")
+            } else if User.validPwd(name : user.name!, familyName : user.familyName! , password : String(actualPassword!.sdbmhash)) {
+                User.changePwd(newPassword: String(newPassword!.sdbmhash))
+                self.successAlert()
+            } else {
+                self.errorAlert(msg: "Invalid password")
+            }
+        }))
+        self.present(alert, animated: true)
     }
     
-    @IBAction func changeSaveVideo(_ sender: Any) {
+    @IBAction func deleteUser(_ sender: Any) {
+        let alert = UIAlertController(title: "DELETE ACCOUNT", message: "Caution. Irreversible action", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Input your password"
+            textField.isSecureTextEntry = true
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            let pwd = alert.textFields![0].text
+            let user = User.connectedUser()
+
+            if pwd!.trim().isEmpty {
+                self.errorAlert(msg: "Please enter your password")
+            } else if User.validPwd(name : user.name!, familyName : user.familyName! , password : String(pwd!.sdbmhash)) {
+                let alert = UIAlertController(title: "DELETE ACCOUNT", message: "Are you sure to delete your account?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+                alert.addAction(UIAlertAction(title: "DELETE", style: .default, handler: { action in
+                    User.deleteOneUser()
+                    let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+                    menuVC.modalPresentationStyle = .fullScreen
+                    self.present(menuVC, animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true)
+            } else {
+                self.errorAlert(msg: "Invalid password")
+            }
+        }))
+        self.present(alert, animated: true)
     }
     
-    @IBAction func changeAutoGenerate(_ sender: Any) {
+    @IBAction func confirmBtn(_ sender: Any) {
+        User.changeSaveAndAuto(saveVid: saveVideoSwitch.isOn, autoGen: autoGenSwitch.isOn)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

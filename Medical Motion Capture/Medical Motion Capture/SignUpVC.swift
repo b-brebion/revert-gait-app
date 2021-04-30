@@ -46,6 +46,8 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         user.hospitalID = hospitalLabel.text
         user.password = String(pwdTextField.text!.sdbmhash)
         user.isConnected = false
+        user.saveVideo = false
+        user.numExamMode = false
         try? AppDelegate.viewContext.save()
         
         for user in User.all {
@@ -56,6 +58,8 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             print(user.hospitalID!)
             print(user.password!)
             print(user.isConnected)
+            print(user.saveVideo)
+            print(user.numExamMode)
         }
     }
     

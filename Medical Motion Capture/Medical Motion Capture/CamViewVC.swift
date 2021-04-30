@@ -10,9 +10,6 @@ class CamViewVC: UIViewController {
         setupBarButtonItem()
     }
     
-    @IBAction func confirmButton(_ segue: UIStoryboardSegue) {
-    }
-    
     private func setupBarButtonItem() {
         let pullDownMenu = UIMenu(title: "", children: [
             UIAction(title: "Parameters", image: UIImage(systemName: "gearshape")) { action in

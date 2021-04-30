@@ -82,6 +82,40 @@ class User: NSManagedObject {
         }
     }
     
+    static func changePwd(newPassword : String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "(isConnected == %@)", NSNumber(value: true))
+        let res = try! AppDelegate.viewContext.fetch(fetchRequest)
+        if res.count > 0 {
+            let objectUpdate = res[0] as! NSManagedObject
+            objectUpdate.setValue(newPassword, forKey: "password")
+            try? AppDelegate.viewContext.save()
+        }
+    }
+    
+    static func changeSaveAndAuto(saveVid: Bool, autoGen: Bool) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "(isConnected == %@)", NSNumber(value: true))
+        let res = try! AppDelegate.viewContext.fetch(fetchRequest)
+        if res.count > 0 {
+            let objectUpdate = res[0] as! NSManagedObject
+            objectUpdate.setValue(saveVid, forKey: "saveVideo")
+            objectUpdate.setValue(autoGen, forKey: "numExamMode")
+            try? AppDelegate.viewContext.save()
+        }
+    }
+    
+    static func deleteOneUser() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "(isConnected == %@)", NSNumber(value: true))
+        let res = try! AppDelegate.viewContext.fetch(fetchRequest)
+        if res.count > 0 {
+            let objectUpdate = res[0] as! NSManagedObject
+            AppDelegate.viewContext.delete(objectUpdate)
+            try? AppDelegate.viewContext.save()
+        }
+    }
+    
     static func deleteAllData() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "User")
         do {

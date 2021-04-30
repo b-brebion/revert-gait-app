@@ -290,9 +290,6 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-ev-ZwR">
                                 <rect key="frame" x="313" y="555" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="changeSaveVideo:" destination="Oqe-Ma-OXU" eventType="valueChanged" id="61M-UM-Ibt"/>
-                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto-generate exam ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCZ-Be-Fe6">
                                 <rect key="frame" x="55" y="629" width="177" height="21"/>
@@ -304,16 +301,13 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v4x-jy-kN8">
                                 <rect key="frame" x="313" y="624" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="changeAutoGenerate:" destination="Oqe-Ma-OXU" eventType="valueChanged" id="g03-r9-WAO"/>
-                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hh-Dt-my4">
                                 <rect key="frame" x="180" y="711" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
-                                    <segue destination="OgV-90-lDG" kind="unwind" unwindAction="confirmButton:" id="Bkt-AG-ush"/>
+                                    <action selector="confirmBtn:" destination="Oqe-Ma-OXU" eventType="touchUpInside" id="2ad-9A-b0g"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYU-lo-tPc">
@@ -335,16 +329,19 @@
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="changePwd:" destination="Oqe-Ma-OXU" eventType="touchUpInside" id="UyN-5h-CWa"/>
+                                    <action selector="deleteUser:" destination="Oqe-Ma-OXU" eventType="touchUpInside" id="2MA-7w-bRS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8aJ-Q1-hKL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="autoGenSwitch" destination="v4x-jy-kN8" id="sQI-t3-502"/>
+                        <outlet property="saveVideoSwitch" destination="HD1-ev-ZwR" id="yII-Av-8LJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCN-6V-z7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="OgV-90-lDG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="1043.9732142857142"/>
         </scene>

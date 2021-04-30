@@ -48,6 +48,29 @@ class User: NSManagedObject {
         return res.count > 0
     }
     
+    static func changeName(name: String, familyName: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "(isConnected == %@)", NSNumber(value: true))
+        let res = try! AppDelegate.viewContext.fetch(fetchRequest)
+        if res.count > 0 {
+            let objectUpdate = res[0] as! NSManagedObject
+            objectUpdate.setValue(name, forKey: "name")
+            objectUpdate.setValue(familyName, forKey: "familyName")
+            try? AppDelegate.viewContext.save()
+        }
+    }
+    
+    static func changeEmail(email: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "(isConnected == %@)", NSNumber(value: true))
+        let res = try! AppDelegate.viewContext.fetch(fetchRequest)
+        if res.count > 0 {
+            let objectUpdate = res[0] as! NSManagedObject
+            objectUpdate.setValue(email, forKey: "email")
+            try? AppDelegate.viewContext.save()
+        }
+    }
+    
     static func deleteAllData() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "User")
         do {

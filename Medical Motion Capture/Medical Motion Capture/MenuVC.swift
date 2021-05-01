@@ -12,6 +12,8 @@ class MenuVC: UIViewController {
         //menuView.addGradientBackground(firstColor: hexStringToUIColor(hex: "#FF512F"), secondColor: UIColor.systemPink)
         //signUpBtn.addGradientBackground(firstColor: hexStringToUIColor(hex: "#FF512F"), secondColor: UIColor.systemPink)
         
+        menuView.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        
         menuView.addShadow(color: hexStringToUIColor(hex: "#FF2D55"))
         signUpBtn.addShadow(color: hexStringToUIColor(hex: "#FF2D55"))
         logInBtn.addShadow(color: hexStringToUIColor(hex: "#7090B0"))

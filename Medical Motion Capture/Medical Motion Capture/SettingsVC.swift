@@ -1,6 +1,6 @@
 import UIKit
 
-class ParametersVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var saveVideoSwitch: UISwitch!
     @IBOutlet weak var autoGenSwitch: UISwitch!
@@ -19,7 +19,7 @@ class ParametersVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     var serviceList = ["CHUA", "CHUB", "CHUC", "CUH", "etc..."]
     
     func successAlert() {
-        let alert = UIAlertController(title: "Success", message: "The parameter(s) have been successfully changed", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Success", message: "The setting(s) have been successfully changed", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }

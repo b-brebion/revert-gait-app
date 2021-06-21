@@ -11,12 +11,15 @@
 		143706DF26330500000C9459 /* CamViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143706DE26330500000C9459 /* CamViewVC.swift */; };
 		145BA174263800D100C1B1FB /* SaveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BA173263800D100C1B1FB /* SaveVC.swift */; };
 		145BA17726380C4000C1B1FB /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BA17626380C3F00C1B1FB /* RNCryptor.swift */; };
+		1484CB6F2680BE01006CCFA3 /* character in Resources */ = {isa = PBXBuildFile; fileRef = 1484CB6E2680BE01006CCFA3 /* character */; };
 		148ACCB12631B152002E3931 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB02631B152002E3931 /* AppDelegate.swift */; };
 		148ACCB32631B152002E3931 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB22631B152002E3931 /* SceneDelegate.swift */; };
 		148ACCB52631B152002E3931 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148ACCB42631B152002E3931 /* MenuVC.swift */; };
 		148ACCB82631B152002E3931 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148ACCB62631B152002E3931 /* Main.storyboard */; };
 		148ACCBA2631B155002E3931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148ACCB92631B155002E3931 /* Assets.xcassets */; };
 		148ACCBD2631B155002E3931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148ACCBB2631B155002E3931 /* LaunchScreen.storyboard */; };
+		148E63332680BB7A000A4835 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148E63322680BB7A000A4835 /* ARKit.framework */; };
+		148E63352680BB83000A4835 /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148E63342680BB83000A4835 /* RealityKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1494329826396680005ABAF1 /* MMC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1494329626396680005ABAF1 /* MMC.xcdatamodeld */; };
 		1494329B26396975005ABAF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1494329A26396975005ABAF1 /* User.swift */; };
 		14F4ACDD263BF06100D3CE76 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */; };
@@ -28,6 +31,7 @@
 		143706DE26330500000C9459 /* CamViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamViewVC.swift; sourceTree = "<group>"; };
 		145BA173263800D100C1B1FB /* SaveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveVC.swift; sourceTree = "<group>"; };
 		145BA17626380C3F00C1B1FB /* RNCryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNCryptor.swift; sourceTree = "<group>"; };
+		1484CB6E2680BE01006CCFA3 /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; name = character; path = ../../CapturingBodyMotionIn3D/BodyDetection/character; sourceTree = "<group>"; };
 		148ACCAD2631B152002E3931 /* Medical Motion Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medical Motion Capture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		148ACCB02631B152002E3931 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		148ACCB22631B152002E3931 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		148ACCB92631B155002E3931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		148ACCBC2631B155002E3931 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		148ACCBE2631B155002E3931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		148E63322680BB7A000A4835 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		148E63342680BB83000A4835 /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
 		1494329726396680005ABAF1 /* MMC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MMC.xcdatamodel; sourceTree = "<group>"; };
 		1494329A26396975005ABAF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -47,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148E63352680BB83000A4835 /* RealityKit.framework in Frameworks */,
+				148E63332680BB7A000A4835 /* ARKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +66,7 @@
 			children = (
 				148ACCAF2631B152002E3931 /* Medical Motion Capture */,
 				148ACCAE2631B152002E3931 /* Products */,
+				148E63312680BB7A000A4835 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +81,7 @@
 		148ACCAF2631B152002E3931 /* Medical Motion Capture */ = {
 			isa = PBXGroup;
 			children = (
+				1484CB6E2680BE01006CCFA3 /* character */,
 				148ACCBE2631B155002E3931 /* Info.plist */,
 				148ACCB02631B152002E3931 /* AppDelegate.swift */,
 				148ACCB22631B152002E3931 /* SceneDelegate.swift */,
@@ -89,6 +99,15 @@
 				14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */,
 			);
 			path = "Medical Motion Capture";
+			sourceTree = "<group>";
+		};
+		148E63312680BB7A000A4835 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				148E63342680BB83000A4835 /* RealityKit.framework */,
+				148E63322680BB7A000A4835 /* ARKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +169,7 @@
 			files = (
 				148ACCBD2631B155002E3931 /* LaunchScreen.storyboard in Resources */,
 				148ACCBA2631B155002E3931 /* Assets.xcassets in Resources */,
+				1484CB6F2680BE01006CCFA3 /* character in Resources */,
 				148ACCB82631B152002E3931 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

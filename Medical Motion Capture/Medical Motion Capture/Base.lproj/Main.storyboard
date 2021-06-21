@@ -171,11 +171,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dQ5-e8-U97">
-                                <rect key="frame" x="20" y="126" width="374" height="648"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgv-m0-zP7">
                                 <rect key="frame" x="180" y="794" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -191,6 +186,10 @@
                                     <imageReference key="image" image="ellipsis.circle" catalog="system" symbolScale="large"/>
                                 </state>
                             </button>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iga-xF-uZq">
+                                <rect key="frame" x="42" y="130" width="330" height="636"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </arView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dRd-81-bNJ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -198,6 +197,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Q5S-0k-3Bj"/>
                     <connections>
+                        <outlet property="arView" destination="Iga-xF-uZq" id="bf9-Dv-1V7"/>
                         <outlet property="menuButton" destination="71r-OA-Yyg" id="zmW-pW-ua5"/>
                     </connections>
                 </viewController>

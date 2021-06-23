@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C8C7868228387D2006A6EE1 /* character in Resources */ = {isa = PBXBuildFile; fileRef = 0C8C7867228387D2006A6EE1 /* character */; };
 		2F60E1DB22631E0F00357E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60E1DA22631E0F00357E98 /* AppDelegate.swift */; };
 		2F60E1DD22631E0F00357E98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60E1DC22631E0F00357E98 /* ViewController.swift */; };
 		2F60E1E222631E0F00357E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F60E1E022631E0F00357E98 /* Main.storyboard */; };
@@ -16,8 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C8C7867228387D2006A6EE1 /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; path = character; sourceTree = "<group>"; };
-		2F60E1D822631E0E00357E98 /* BodyDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F60E1D822631E0E00357E98 /* JointsDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JointsDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F60E1DA22631E0F00357E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F60E1DC22631E0F00357E98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2F60E1E122631E0F00357E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,7 +47,7 @@
 		2F60E1B122631DCF00357E98 = {
 			isa = PBXGroup;
 			children = (
-				2F60E1D922631E0F00357E98 /* BodyDetection */,
+				2F60E1D922631E0F00357E98 /* JointsDetection */,
 				2F60E1BB22631DCF00357E98 /* Products */,
 				29819F71B3026A375E893049 /* Configuration */,
 			);
@@ -58,31 +56,30 @@
 		2F60E1BB22631DCF00357E98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F60E1D822631E0E00357E98 /* BodyDetection.app */,
+				2F60E1D822631E0E00357E98 /* JointsDetection.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2F60E1D922631E0F00357E98 /* BodyDetection */ = {
+		2F60E1D922631E0F00357E98 /* JointsDetection */ = {
 			isa = PBXGroup;
 			children = (
 				2F60E1DA22631E0F00357E98 /* AppDelegate.swift */,
 				2F60E1DC22631E0F00357E98 /* ViewController.swift */,
-				0C8C7867228387D2006A6EE1 /* character */,
 				2F60E1E022631E0F00357E98 /* Main.storyboard */,
 				2F60E1E322631E0F00357E98 /* Assets.xcassets */,
 				2F60E1E522631E0F00357E98 /* LaunchScreen.storyboard */,
 				2F60E1EB22631E0F00357E98 /* Info.plist */,
 			);
-			path = BodyDetection;
+			path = JointsDetection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2F60E1D722631E0E00357E98 /* BodyDetection */ = {
+		2F60E1D722631E0E00357E98 /* JointsDetection */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F60E1EE22631E0F00357E98 /* Build configuration list for PBXNativeTarget "BodyDetection" */;
+			buildConfigurationList = 2F60E1EE22631E0F00357E98 /* Build configuration list for PBXNativeTarget "JointsDetection" */;
 			buildPhases = (
 				2F60E1D422631E0E00357E98 /* Sources */,
 				2F60E1D522631E0E00357E98 /* Frameworks */,
@@ -92,9 +89,9 @@
 			);
 			dependencies = (
 			);
-			name = BodyDetection;
+			name = JointsDetection;
 			productName = Simple;
-			productReference = 2F60E1D822631E0E00357E98 /* BodyDetection.app */;
+			productReference = 2F60E1D822631E0E00357E98 /* JointsDetection.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -113,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2F60E1B522631DCF00357E98 /* Build configuration list for PBXProject "BodyDetection" */;
+			buildConfigurationList = 2F60E1B522631DCF00357E98 /* Build configuration list for PBXProject "JointsDetection" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2F60E1D722631E0E00357E98 /* BodyDetection */,
+				2F60E1D722631E0E00357E98 /* JointsDetection */,
 			);
 		};
 /* End PBXProject section */
@@ -136,7 +133,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C8C7868228387D2006A6EE1 /* character in Resources */,
 				2F60E1E722631E0F00357E98 /* LaunchScreen.storyboard in Resources */,
 				2F60E1E422631E0F00357E98 /* Assets.xcassets in Resources */,
 				2F60E1E222631E0F00357E98 /* Main.storyboard in Resources */,
@@ -307,13 +303,13 @@
 				DEVELOPMENT_TEAM = 29T9L64KK2;
 				ENABLE_RCPROJECT_COMPILATION = YES;
 				ENABLE_USDZ_COMPILATION = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/BodyDetection/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JointsDetection/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.BodyDetection${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lml.jointsDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -332,13 +328,13 @@
 				DEVELOPMENT_TEAM = 29T9L64KK2;
 				ENABLE_RCPROJECT_COMPILATION = YES;
 				ENABLE_USDZ_COMPILATION = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/BodyDetection/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/JointsDetection/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.BodyDetection${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lml.jointsDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -350,7 +346,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F60E1B522631DCF00357E98 /* Build configuration list for PBXProject "BodyDetection" */ = {
+		2F60E1B522631DCF00357E98 /* Build configuration list for PBXProject "JointsDetection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F60E1CF22631DD100357E98 /* Debug */,
@@ -359,7 +355,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F60E1EE22631E0F00357E98 /* Build configuration list for PBXNativeTarget "BodyDetection" */ = {
+		2F60E1EE22631E0F00357E98 /* Build configuration list for PBXNativeTarget "JointsDetection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F60E1EC22631E0F00357E98 /* Debug */,

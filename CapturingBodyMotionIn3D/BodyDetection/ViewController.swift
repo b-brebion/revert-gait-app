@@ -67,7 +67,6 @@ class ViewController: UIViewController, ARSessionDelegate {
             characterAnchor.orientation = Transform(matrix: bodyAnchor.transform).rotation
    
             if let character = character, character.parent == nil {
-                print("on est là")
                 // Attach the character to its anchor as soon as
                 // 1. the body anchor was detected and
                 // 2. the character was loaded.

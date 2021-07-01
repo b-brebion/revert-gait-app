@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1495233E268DED4200F87032 /* character in Resources */ = {isa = PBXBuildFile; fileRef = 1495233D268DED4200F87032 /* character */; };
 		2F60E1DB22631E0F00357E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60E1DA22631E0F00357E98 /* AppDelegate.swift */; };
 		2F60E1DD22631E0F00357E98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60E1DC22631E0F00357E98 /* ViewController.swift */; };
 		2F60E1E222631E0F00357E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F60E1E022631E0F00357E98 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1495233D268DED4200F87032 /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; path = character; sourceTree = "<group>"; };
 		2F60E1D822631E0E00357E98 /* JointsDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JointsDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F60E1DA22631E0F00357E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F60E1DC22631E0F00357E98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		2F60E1D922631E0F00357E98 /* JointsDetection */ = {
 			isa = PBXGroup;
 			children = (
+				1495233D268DED4200F87032 /* character */,
 				2F60E1DA22631E0F00357E98 /* AppDelegate.swift */,
 				2F60E1DC22631E0F00357E98 /* ViewController.swift */,
 				2F60E1E022631E0F00357E98 /* Main.storyboard */,
@@ -90,6 +93,8 @@
 			dependencies = (
 			);
 			name = JointsDetection;
+			packageProductDependencies = (
+			);
 			productName = Simple;
 			productReference = 2F60E1D822631E0E00357E98 /* JointsDetection.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +124,8 @@
 				Base,
 			);
 			mainGroup = 2F60E1B122631DCF00357E98;
+			packageReferences = (
+			);
 			productRefGroup = 2F60E1BB22631DCF00357E98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +142,7 @@
 			files = (
 				2F60E1E722631E0F00357E98 /* LaunchScreen.storyboard in Resources */,
 				2F60E1E422631E0F00357E98 /* Assets.xcassets in Resources */,
+				1495233E268DED4200F87032 /* character in Resources */,
 				2F60E1E222631E0F00357E98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

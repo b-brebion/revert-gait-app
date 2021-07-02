@@ -20,13 +20,19 @@ class CustomSphere: Entity, HasModel {
 class ViewController: UIViewController, ARSessionDelegate {
 
     @IBOutlet var arView: ARView!
+    @IBOutlet weak var recordBtn: UIButton!
     
-    // The 3D character to display.
     var character: BodyTrackedEntity?
     let characterAnchor = AnchorEntity()
     
     let sphereAnchor = AnchorEntity()
     var jointSpheres = [Entity]()
+    
+    var recordState = false
+    let pathDirectory = getDocumentsDirectory()
+    var jsonDict : [String: Any] = [:]
+    var jointsDict : [String : Any] = [:]
+    var recordIndex = 0
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -37,7 +43,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             fatalError("This feature is only supported on devices with an A12 chip")
         }
 
-        // Run a body tracking configration.
+        // Run a body tracking configration
         let configuration = ARBodyTrackingConfiguration()
         arView.session.run(configuration)
         
@@ -68,7 +74,7 @@ class ViewController: UIViewController, ARSessionDelegate {
         for anchor in anchors {
             guard let bodyAnchor = anchor as? ARBodyAnchor else { continue }
             
-            // Update the position of the character anchor's position.
+            // Update the position/orientation of the character anchor
             let bodyPosition = simd_make_float3(bodyAnchor.transform.columns.3)
             let bodyOrientation = Transform(matrix: bodyAnchor.transform).rotation
             characterAnchor.position = bodyPosition
@@ -76,12 +82,14 @@ class ViewController: UIViewController, ARSessionDelegate {
             
             if let character = character, character.jointNames.count == bodyAnchor.skeleton.jointModelTransforms.count {
                 if jointSpheres.count == 0 {
+                    // If the person is detected for the first time, create all the joints
                     for i in 0..<bodyAnchor.skeleton.jointModelTransforms.count {
                         let jointName = character.jointName(forPath: character.jointNames[i])
                         if let transform = bodyAnchor.skeleton.modelTransform(for: jointName) {
                             var jointRadius: Float = 0.03
                             var jointColor: UIColor = .green
                             
+                            // Different appearance of the sphere on the screen depending on the joint
                             switch jointName.rawValue {
                                 case "neck_1_joint", "neck_2_joint", "neck_3_joint", "neck_4_joint", "head_joint", "left_shoulder_1_joint", "right_shoulder_1_joint":
                                     jointRadius *= 0.5
@@ -104,6 +112,7 @@ class ViewController: UIViewController, ARSessionDelegate {
                                     jointColor = .green
                             }
                             
+                            // Placement, creation and display of the sphere on the screen
                             let position = bodyPosition + simd_make_float3(transform.columns.3)
                             let newSphere = CustomSphere(color: jointColor, radius: jointRadius)
                             newSphere.transform = Transform(scale: [1, 1, 1], rotation: bodyOrientation, translation: position)
@@ -112,12 +121,15 @@ class ViewController: UIViewController, ARSessionDelegate {
                         }
                     }
                 } else {
+                    // If the person has already been detected, and the joints need to be updated
                     let bodyPosition = simd_make_float3(bodyAnchor.transform.columns.3)
                     let bodyOrientation = Transform(matrix: bodyAnchor.transform).rotation
                     
                     for i in 0..<jointSpheres.count {
+                        // Joint-by-joint update
                         let jointName = character.jointName(forPath: character.jointNames[i])
                         if let transform = bodyAnchor.skeleton.modelTransform(for: jointName) {
+                            // See: https://developer.apple.com/forums/thread/132787
                             let position = bodyPosition + bodyOrientation.act(simd_make_float3(transform.columns.3))
                             jointSpheres[i].position = position
                             jointSpheres[i].orientation = bodyOrientation
@@ -127,9 +139,55 @@ class ViewController: UIViewController, ARSessionDelegate {
             }
         }
     }
+    
+    @IBAction func recordData(_ sender: Any) {
+        if recordState {
+            // End of recording
+            recordBtn.setTitle("Record", for: .normal)
+            recordBtn.setTitleColor(UIColor.black, for: .normal)
+            recordBtn.backgroundColor = UIColor.white
+            
+            let dateFormatter : DateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
+            let date = Date()
+            let dateString = dateFormatter.string(from: date) + ".json"
+            
+            try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+            let filePath = pathDirectory.appendingPathComponent(dateString)
+
+            let levels = ["unlocked", "locked", "locked"]
+            let json = try? JSONEncoder().encode(levels)
+
+            do {
+                 try json!.write(to: filePath)
+            } catch {
+                print("Failed to write JSON data: \(error.localizedDescription)")
+            }
+            
+            let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            recordState = false
+        } else {
+            // Start of recording
+            recordBtn.setTitle("Stop recording", for: .normal)
+            recordBtn.setTitleColor(UIColor.white, for: .normal)
+            recordBtn.backgroundColor = UIColor(red: 255/255, green: 100/255, blue: 70/255, alpha: 1.0)
+
+            recordIndex = 0
+            recordState = true
+        }
+    }
+}
+
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
 }
 
 extension BodyTrackedEntity {
+    // Get the joint name from the path
     func jointName(forPath path: String) -> ARSkeleton.JointName {
         let splitPath = path.split(separator: "/")
         return ARSkeleton.JointName(rawValue: String(splitPath[splitPath.count - 1]))

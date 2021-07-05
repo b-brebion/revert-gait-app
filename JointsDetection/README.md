@@ -2,7 +2,7 @@
 
 ## JointsDetection
 #### To be done
-- Allow data to be recorded in a file
-- Upgrade to ARKit 5 when available (for better accuracy)
-- Add comments to the code
+- Async body detection (in order to remove the small lag at the beginning)
+- More information in the JSON file (e.g. about the position of the camera?)
 - Try to have vectors between the joints displayed on the screen
+- Various code optimisations

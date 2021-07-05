@@ -30,8 +30,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     
     var recordState = false
     let pathDirectory = getDocumentsDirectory()
-    var jsonDict : [String: Any] = [:]
-    var jointsDict : [String : Any] = [:]
+    var jsonArr = [[String: String]]()
+    var jsonDict: [String: String] = [:]
     var recordIndex = 0
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,8 +122,10 @@ class ViewController: UIViewController, ARSessionDelegate {
                     }
                 } else {
                     // If the person has already been detected, and the joints need to be updated
-                    let bodyPosition = simd_make_float3(bodyAnchor.transform.columns.3)
-                    let bodyOrientation = Transform(matrix: bodyAnchor.transform).rotation
+                    jsonDict = [:]
+                    
+                    jsonDict["bodyPosition"] = bodyPosition.debugDescription
+                    jsonDict["bodyOrientation"] = bodyOrientation.debugDescription
                     
                     for i in 0..<jointSpheres.count {
                         // Joint-by-joint update
@@ -133,7 +135,14 @@ class ViewController: UIViewController, ARSessionDelegate {
                             let position = bodyPosition + bodyOrientation.act(simd_make_float3(transform.columns.3))
                             jointSpheres[i].position = position
                             jointSpheres[i].orientation = bodyOrientation
+                            
+                            jsonDict[jointName.rawValue] = position.description
                         }
+                    }
+                    
+                    // If recording is enabled, add the data of the various joints to the JSON array
+                    if recordState {
+                        jsonArr.append(jsonDict)
                     }
                 }
             }
@@ -147,6 +156,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             recordBtn.setTitleColor(UIColor.black, for: .normal)
             recordBtn.backgroundColor = UIColor.white
             
+            // Allow the file name to match the date and time of the end of recording
             let dateFormatter : DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
             let date = Date()
@@ -154,17 +164,17 @@ class ViewController: UIViewController, ARSessionDelegate {
             
             try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
             let filePath = pathDirectory.appendingPathComponent(dateString)
-
-            let levels = ["unlocked", "locked", "locked"]
-            let json = try? JSONEncoder().encode(levels)
-
+            
+            // Save the JSON array in a file
+            let json = try? JSONEncoder().encode(jsonArr)
             do {
-                 try json!.write(to: filePath)
+                try json!.write(to: filePath)
             } catch {
                 print("Failed to write JSON data: \(error.localizedDescription)")
             }
             
-            let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data", preferredStyle: UIAlertController.Style.alert)
+            // Alert pop-up window
+            let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + dateString + ")", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             

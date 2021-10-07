@@ -6,7 +6,7 @@ import Combine
 class CustomSphere: Entity, HasModel {
     required init(color: UIColor, radius: Float) {
         super.init()
-        self.components[ModelComponent] = ModelComponent(
+        self.components[ModelComponent.self] = ModelComponent(
             mesh: .generateSphere(radius: radius),
             materials: [SimpleMaterial(color: color, isMetallic: false)]
         )
@@ -71,6 +71,8 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        let startTime = CFAbsoluteTimeGetCurrent()
+        
         for anchor in anchors {
             guard let bodyAnchor = anchor as? ARBodyAnchor else { continue }
             
@@ -84,8 +86,20 @@ class ViewController: UIViewController, ARSessionDelegate {
                 if jointSpheres.count == 0 {
                     // If the person is detected for the first time, create all the joints
                     for i in 0..<bodyAnchor.skeleton.jointModelTransforms.count {
+                        /*
+                        print("spine 1 (model)", bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: "spine_1_joint")))
+                        print("spine 2 (model)", bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: "spine_2_joint")))
+                        print("spine 7 (model)", bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: "spine_7_joint")))
+                                        
+                        print("spine 1 (local)", bodyAnchor.skeleton.localTransform(for: ARSkeleton.JointName(rawValue: "spine_1_joint")))
+                        print("spine 2 (local)", bodyAnchor.skeleton.localTransform(for: ARSkeleton.JointName(rawValue: "spine_2_joint")))
+                        print("spine 7 (local)", bodyAnchor.skeleton.localTransform(for: ARSkeleton.JointName(rawValue: "spine_7_joint")))
+                         */
+                        
                         let jointName = character.jointName(forPath: character.jointNames[i])
                         if let transform = bodyAnchor.skeleton.modelTransform(for: jointName) {
+                            //print("Matrice", i, transform)
+                            
                             var jointRadius: Float = 0.03
                             var jointColor: UIColor = .green
                             
@@ -122,6 +136,8 @@ class ViewController: UIViewController, ARSessionDelegate {
                     }
                 } else {
                     // If the person has already been detected, and the joints need to be updated
+                    let startTime2 = CFAbsoluteTimeGetCurrent()
+                    
                     jsonDict = [:]
                     
                     jsonDict["bodyPosition"] = bodyPosition.debugDescription
@@ -136,7 +152,8 @@ class ViewController: UIViewController, ARSessionDelegate {
                             jointSpheres[i].position = position
                             jointSpheres[i].orientation = bodyOrientation
                             
-                            jsonDict[jointName.rawValue] = position.description
+                            //jsonDict[jointName.rawValue] = position.description
+                            jsonDict[jointName.rawValue] = transform.debugDescription
                         }
                     }
                     
@@ -144,9 +161,15 @@ class ViewController: UIViewController, ARSessionDelegate {
                     if recordState {
                         jsonArr.append(jsonDict)
                     }
+                    
+                    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime2
+                    print("Time (joints update)", Double(timeElapsed), "seconds")
                 }
             }
         }
+        
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        print("Time (session)", Double(timeElapsed), "seconds")
     }
     
     @IBAction func recordData(_ sender: Any) {

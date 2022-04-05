@@ -82,7 +82,6 @@ class ViewController: UIViewController, ARSessionDelegate {
             characterAnchor.orientation = bodyOrientation
             
             if let character = character, character.jointNames.count == bodyAnchor.skeleton.jointModelTransforms.count {
-                /*
                 if jointSpheres.count == 0 {
                     // If the person is detected for the first time, create all the joints
                     for i in 0..<bodyAnchor.skeleton.jointModelTransforms.count {
@@ -165,25 +164,6 @@ class ViewController: UIViewController, ARSessionDelegate {
                     let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime2
                     print("Time (joints update)", Double(timeElapsed), "seconds")
                 }
-                 */
-                
-                // TEMP --------------------------------
-                jsonDict = [:]
-                
-                jsonDict["bodyPosition"] = bodyPosition.debugDescription
-                jsonDict["bodyOrientation"] = bodyOrientation.debugDescription
-                
-                for i in 0..<bodyAnchor.skeleton.jointModelTransforms.count {
-                    let jointName = character.jointName(forPath: character.jointNames[i])
-                    if let transform = bodyAnchor.skeleton.modelTransform(for: jointName) {
-                        jsonDict[jointName.rawValue] = transform.debugDescription
-                    }
-                }
-
-                if recordState {
-                    jsonArr.append(jsonDict)
-                }
-                // -------------------------------------
             }
         }
         

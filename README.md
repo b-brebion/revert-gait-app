@@ -2,7 +2,7 @@
 
 ## :file_folder: JointsDetection
 #### Content
-Simple Motion Capture app with custom joints (not a .usdz model) and the ability to save the capture to a JSON file.
+Simple ARKit Motion Capture app with custom joints (not a .usdz model) and the ability to save the capture to a JSON file.
 #### To be done
 - Async body detection (in order to remove the small lag at the beginning)
 - More information in the JSON file (e.g. about the position of the camera?)

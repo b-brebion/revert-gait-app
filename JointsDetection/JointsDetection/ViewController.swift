@@ -28,6 +28,7 @@ class ViewController: UIViewController, ARSessionDelegate {
     let sphereAnchor = AnchorEntity()
     var jointSpheres = [Entity]()
     
+    let trackedJoints: [String] = ["root", "hips_joint", "spine_3_joint", "spine_5_joint", "spine_7_joint", "neck_1_joint", "head_joint", "right_arm_joint", "right_forearm_joint", "right_hand_joint", "left_arm_joint", "left_forearm_joint", "left_hand_joint", "right_upleg_joint", "right_leg_joint", "right_foot_joint", "left_upleg_joint", "left_leg_joint", "left_foot_joint"]
     var recordState = false
     let pathDirectory = getDocumentsDirectory()
     var jsonArr = [[String: String]]()
@@ -70,12 +71,19 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        let startTime = CFAbsoluteTimeGetCurrent()
+        // let startTime = CFAbsoluteTimeGetCurrent()
+        
+        /*
+        guard let arCamera = session.currentFrame?.camera else { return }
+        print("ARCamera Transform = ", arCamera.transform)
+        print("ARCamera Projection Matrix = ", arCamera.projectionMatrix)
+        print("ARCamera Euler Angles = ", arCamera.eulerAngles)
+         */
         
         for anchor in anchors {
             guard let bodyAnchor = anchor as? ARBodyAnchor else { continue }
             
-            // Update the position/orientation of the character anchor
+            // Update the position/orientation of the body anchor (bodyAnchor.transform defines the world position of the body's hip joint)
             let bodyPosition = simd_make_float3(bodyAnchor.transform.columns.3)
             let bodyOrientation = Transform(matrix: bodyAnchor.transform).rotation
             characterAnchor.position = bodyPosition
@@ -85,20 +93,8 @@ class ViewController: UIViewController, ARSessionDelegate {
                 if jointSpheres.count == 0 {
                     // If the person is detected for the first time, create all the joints
                     for i in 0..<bodyAnchor.skeleton.jointModelTransforms.count {
-                        /*
-                        print("spine 1 (model)", bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: "spine_1_joint")))
-                        print("spine 2 (model)", bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: "spine_2_joint")))
-                        print("spine 7 (model)", bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: "spine_7_joint")))
-                                        
-                        print("spine 1 (local)", bodyAnchor.skeleton.localTransform(for: ARSkeleton.JointName(rawValue: "spine_1_joint")))
-                        print("spine 2 (local)", bodyAnchor.skeleton.localTransform(for: ARSkeleton.JointName(rawValue: "spine_2_joint")))
-                        print("spine 7 (local)", bodyAnchor.skeleton.localTransform(for: ARSkeleton.JointName(rawValue: "spine_7_joint")))
-                         */
-                        
                         let jointName = character.jointName(forPath: character.jointNames[i])
                         if let transform = bodyAnchor.skeleton.modelTransform(for: jointName) {
-                            //print("Matrice", i, transform)
-                            
                             var jointRadius: Float = 0.03
                             var jointColor: UIColor = .green
                             
@@ -125,6 +121,16 @@ class ViewController: UIViewController, ARSessionDelegate {
                                     jointColor = .green
                             }
                             
+                            /*
+                            print("--------------------------------------------")
+                            print(jointName.rawValue)
+                            let test = Transform(matrix: transform)
+                            // print("Matrix :", test.matrix)
+                            print("Translation :", test.translation)
+                            print("Rotation :", test.rotation)
+                            // print("Scale :", test.scale)
+                             */
+                            
                             // Placement, creation and display of the sphere on the screen
                             let position = bodyPosition + simd_make_float3(transform.columns.3)
                             let newSphere = CustomSphere(color: jointColor, radius: jointRadius)
@@ -135,7 +141,7 @@ class ViewController: UIViewController, ARSessionDelegate {
                     }
                 } else {
                     // If the person has already been detected, and the joints need to be updated
-                    let startTime2 = CFAbsoluteTimeGetCurrent()
+                    // let startTime2 = CFAbsoluteTimeGetCurrent()
                     
                     jsonDict = [:]
                     
@@ -151,8 +157,10 @@ class ViewController: UIViewController, ARSessionDelegate {
                             jointSpheres[i].position = position
                             jointSpheres[i].orientation = bodyOrientation
                             
-                            //jsonDict[jointName.rawValue] = position.description
-                            jsonDict[jointName.rawValue] = transform.debugDescription
+                            if trackedJoints.contains(jointName.rawValue) {
+                                jsonDict[jointName.rawValue] = position.description
+                                // jsonDict[jointName.rawValue] = transform.debugDescription
+                            }
                         }
                     }
                     
@@ -161,14 +169,18 @@ class ViewController: UIViewController, ARSessionDelegate {
                         jsonArr.append(jsonDict)
                     }
                     
+                    /*
                     let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime2
                     print("Time (joints update)", Double(timeElapsed), "seconds")
+                     */
                 }
             }
         }
         
+        /*
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         print("Time (session)", Double(timeElapsed), "seconds")
+         */
     }
     
     @IBAction func recordData(_ sender: Any) {

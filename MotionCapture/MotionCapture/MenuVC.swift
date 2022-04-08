@@ -1,7 +1,6 @@
 import UIKit
 
 class MenuVC: UIViewController {
-    
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var logInBtn: UIButton!
@@ -20,6 +19,7 @@ class MenuVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // If someone is already connected, switch to CamView scene
         if User.isConnected() {
             let camViewVC = self.storyboard?.instantiateViewController(withIdentifier: "CamViewVC") as! CamViewVC
             camViewVC.modalPresentationStyle = .fullScreen

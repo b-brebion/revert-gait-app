@@ -3,6 +3,7 @@ import RealityKit
 import ARKit
 import Combine
 
+// CustomSphere class for joints rendering
 class CustomSphere: Entity, HasModel {
     required init(color: UIColor, radius: Float) {
         super.init()
@@ -18,20 +19,30 @@ class CustomSphere: Entity, HasModel {
 }
 
 class ViewController: UIViewController, ARSessionDelegate {
-
+    // ARView to allow augmented reality features (make sure to only use ARKit and RealityKit contents)
     @IBOutlet var arView: ARView!
+    // Record button
     @IBOutlet weak var recordBtn: UIButton!
     
+    // Entity allowing to track a virtual character in an AR scene (contains joints informations)
     var character: BodyTrackedEntity?
+    // Anchor used to place properly the character in the AR scene
     let characterAnchor = AnchorEntity()
     
+    // Anchor used to place every joint in the AR scene
     let sphereAnchor = AnchorEntity()
+    // Array keeping the information of each joint
     var jointSpheres = [Entity]()
     
+    // List of the joints we want to be tracked in the JSON file
     let trackedJoints: [String] = ["root", "hips_joint", "spine_3_joint", "spine_5_joint", "spine_7_joint", "neck_1_joint", "head_joint", "right_arm_joint", "right_forearm_joint", "right_hand_joint", "left_arm_joint", "left_forearm_joint", "left_hand_joint", "right_upleg_joint", "right_leg_joint", "right_foot_joint", "left_upleg_joint", "left_leg_joint", "left_foot_joint"]
+    // State of the record (false=off, true=on)
     var recordState = false
+    // Path of the app folder to save the JSON file
     let pathDirectory = getDocumentsDirectory()
+    // Array keeping track of the joints at each joints update
     var jsonArr = [[String: String]]()
+    // Dictionary added to the aforementioned array at each update (1 dict = 1 frame)
     var jsonDict: [String: String] = [:]
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,10 +58,11 @@ class ViewController: UIViewController, ARSessionDelegate {
         let configuration = ARBodyTrackingConfiguration()
         arView.session.run(configuration)
         
+        // Adding the anchors in the scene
         arView.scene.addAnchor(characterAnchor)
         arView.scene.addAnchor(sphereAnchor)
         
-        // Asynchronously load the 3D character.
+        // Asynchronously load the 3D character
         var cancellable: AnyCancellable? = nil
         cancellable = Entity.loadBodyTrackedAsync(named: "character/robot").sink(
             receiveCompletion: { completion in
@@ -71,8 +83,11 @@ class ViewController: UIViewController, ARSessionDelegate {
     }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        // Keeping the default frame rate at the moment (~ 240fps measured)
+        
         // let startTime = CFAbsoluteTimeGetCurrent()
         
+        // Camera informations
         /*
         guard let arCamera = session.currentFrame?.camera else { return }
         print("ARCamera Transform = ", arCamera.transform)
@@ -131,7 +146,7 @@ class ViewController: UIViewController, ARSessionDelegate {
                             // print("Scale :", test.scale)
                              */
                             
-                            // Placement, creation and display of the sphere on the screen
+                            // Placement, creation and display of the spheres on the screen
                             let position = bodyPosition + simd_make_float3(transform.columns.3)
                             let newSphere = CustomSphere(color: jointColor, radius: jointRadius)
                             newSphere.transform = Transform(scale: [1, 1, 1], rotation: bodyOrientation, translation: position)

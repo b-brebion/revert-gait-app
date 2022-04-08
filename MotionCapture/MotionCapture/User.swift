@@ -1,6 +1,9 @@
 import CoreData
 
 class User: NSManagedObject {
+    // See: https://developer.apple.com/documentation/coredata
+    // -> for more informations about saving data using CoreData
+    
     static var all: [User] {
         let request: NSFetchRequest<User> = User.fetchRequest()
         guard let users = try? AppDelegate.viewContext.fetch(request) else {

@@ -1,7 +1,6 @@
 import UIKit
 
 class SaveVC: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -12,6 +11,7 @@ class SaveVC: UIViewController {
         return paths[0]
     }
 
+    // Various file saving and encryption tests
     @IBAction func saveFileButton(_ sender: Any) {
         let now = Date()
         let format = DateFormatter()

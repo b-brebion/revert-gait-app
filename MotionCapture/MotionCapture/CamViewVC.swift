@@ -55,6 +55,7 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         })
     }
     
+    // Setup the settings and disconnect buttons
     private func setupBarButtonItem() {
         let pullDownMenu = UIMenu(title: "", children: [
             UIAction(title: "Settings", image: UIImage(systemName: "gearshape")) { action in
@@ -78,11 +79,12 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         menuButton.showsMenuAsPrimaryAction = true
     }
     
+    // ARKit session (will switch to the code of JointsDetection in the future)
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         for anchor in anchors {
             guard let bodyAnchor = anchor as? ARBodyAnchor else { continue }
             //let leftHandTransform = bodyAnchor.skeleton.modelTransform(for: .leftHand)!
-            print("test")
+            // print("test")
             //print(ARSkeletonDefinition.defaultBody3D.jointNames)
             //let test = bodyAnchor.skeleton.localTransform(for: ARSkeleton.JointName(rawValue: "hips_joint"))
             //print(test)

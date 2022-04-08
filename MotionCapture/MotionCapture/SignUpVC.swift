@@ -1,7 +1,6 @@
 import UIKit
 
 class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var familyNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -38,6 +37,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         return User.entityInDB(name: nameTextField.text!, familyName: familyNameTextField.text!)
     }
     
+    // Save the user in the database
     func saveUser() {
         let user = User(context: AppDelegate.viewContext)
         user.name = nameTextField.text
@@ -63,6 +63,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
+    // Verification steps when a user is attempting to create an account
     @IBAction func createAccount(_ sender: Any) {
         if checkFields() {
             let alert = UIAlertController(title: "Can't create account", message: "At least one field hasn't been completed", preferredStyle: .alert)
@@ -92,6 +93,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
+    // Pop-up picker view to choose the Hospital ID
     @IBAction func popUpPicker(_ sender: Any) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
@@ -105,7 +107,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
         pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
 
-        let alert = UIAlertController(title: "Select User", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Select Hospital ID", message: "", preferredStyle: .actionSheet)
         
         alert.popoverPresentationController?.sourceView = hospitalPickerViewButton
         alert.popoverPresentationController?.sourceRect = hospitalPickerViewButton.bounds

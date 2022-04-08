@@ -1,7 +1,6 @@
 import UIKit
 
 class LogInVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var pickerViewButton: UIButton!
     @IBOutlet weak var pwdTextField: UITextField!
@@ -25,6 +24,7 @@ class LogInVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         return User.validPwd(name: userName, familyName: userFamilyName, password: String(pwdTextField.text!.sdbmhash))
     }
     
+    // Verification steps when a user is attempting to log in
     @IBAction func userConnect(_ sender: Any) {
         if checkUser() {
             let alert = UIAlertController(title: "Can't connect", message: "Please choose a valid user", preferredStyle: .alert)
@@ -46,6 +46,7 @@ class LogInVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
+    // Pop-up picker view to choose the user to connect with
     @IBAction func popUpPicker(_ sender: Any) {
         if userList.count == 0 {
             let alert = UIAlertController(title: "No account in the database", message: "Please create an account before logging in", preferredStyle: .alert)

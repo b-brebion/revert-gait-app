@@ -99,7 +99,7 @@ class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
         pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
 
-        let alert = UIAlertController(title: "Select User", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Select Hospital ID", message: "", preferredStyle: .actionSheet)
         
         // alert.popoverPresentationController?.sourceView = hospitalPickerViewButton
         // alert.popoverPresentationController?.sourceRect = hospitalPickerViewButton.bounds

@@ -10,6 +10,23 @@ class CamViewVC: UIViewController, ARSessionDelegate {
     
     // The 3D character to display.
     var character: BodyTrackedEntity?
+    
+    // State of the record (false=off, true=on)
+    var recordState = false
+    
+    // List of the joints we want to be tracked in the JSON file
+    let trackedJoints: [String] = ["root", "hips_joint", "spine_3_joint", "spine_5_joint", "spine_7_joint", "neck_1_joint", "head_joint", "right_arm_joint", "right_forearm_joint", "right_hand_joint", "left_arm_joint", "left_forearm_joint", "left_hand_joint", "right_upleg_joint", "right_leg_joint", "right_foot_joint", "left_upleg_joint", "left_leg_joint", "left_foot_joint"]
+    
+    // Anchor used to place every joint in the AR scene
+    let sphereAnchor = AnchorEntity()
+    // Array keeping the information of each joint
+    var jointSpheres = [Entity]()
+    
+    // Array keeping track of the joints at each joints update
+    var jsonArr = [[String: String]]()
+    // Dictionary added to the aforementioned array at each update (1 dict = 1 frame)
+    var jsonDict: [String: String] = [:]
+    
     let characterOffset: SIMD3<Float> = [-1.0, 0, 0] // Offset the character by one meter to the left
     let characterAnchor = AnchorEntity()
     
@@ -25,15 +42,18 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         
         // If the iOS device doesn't support body tracking, raise a developer error for
         // this unhandled case.
+        /*
         guard ARBodyTrackingConfiguration.isSupported else {
             fatalError("This feature is only supported on devices with an A12 chip")
-        }
+        }*/
 
         // Run a body tracking configration.
         let configuration = ARBodyTrackingConfiguration()
         arView.session.run(configuration)
         
+        // Adding anchors in the scenes
         arView.scene.addAnchor(characterAnchor)
+        arView.scene.addAnchor(sphereAnchor)
         
         // Asynchronously load the 3D character.
         var cancellable: AnyCancellable? = nil
@@ -78,7 +98,7 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         menuButton.menu = pullDownMenu
         menuButton.showsMenuAsPrimaryAction = true
     }
-    
+    /*
     // ARKit session (will switch to the code of JointsDetection in the future)
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         for anchor in anchors {
@@ -105,5 +125,129 @@ class CamViewVC: UIViewController, ARSessionDelegate {
                 characterAnchor.addChild(character)
             }
         }
+    }*/
+    
+    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+        // Keeping the default frame rate at the moment (~ 240fps measured)
+        
+        // let startTime = CFAbsoluteTimeGetCurrent()
+        
+        // Camera informations
+        /*
+        guard let arCamera = session.currentFrame?.camera else { return }
+        print("ARCamera Transform = ", arCamera.transform)
+        print("ARCamera Projection Matrix = ", arCamera.projectionMatrix)
+        print("ARCamera Euler Angles = ", arCamera.eulerAngles)
+         */
+        
+        for anchor in anchors {
+            guard let bodyAnchor = anchor as? ARBodyAnchor else { continue }
+            
+            // Update the position/orientation of the body anchor (bodyAnchor.transform defines the world position of the body's hip joint)
+            let bodyPosition = simd_make_float3(bodyAnchor.transform.columns.3)
+            let bodyOrientation = Transform(matrix: bodyAnchor.transform).rotation
+            characterAnchor.position = bodyPosition
+            characterAnchor.orientation = bodyOrientation
+            
+            if let character = character, character.jointNames.count == bodyAnchor.skeleton.jointModelTransforms.count {
+                if jointSpheres.count == 0 {
+                    // If the person is detected for the first time, create all the joints
+                    for i in 0..<bodyAnchor.skeleton.jointModelTransforms.count {
+                        let jointName = character.jointName(forPath: character.jointNames[i])
+                        if let transform = bodyAnchor.skeleton.modelTransform(for: jointName) {
+                            var jointRadius: Float = 0.03
+                            var jointColor: UIColor = .green
+                            
+                            // Different appearance of the sphere on the screen depending on the joint
+                            switch jointName.rawValue {
+                                case "neck_1_joint", "neck_2_joint", "neck_3_joint", "neck_4_joint", "head_joint", "left_shoulder_1_joint", "right_shoulder_1_joint":
+                                    jointRadius *= 0.5
+                                case "jaw_joint", "chin_joint", "left_eye_joint", "left_eyeLowerLid_joint", "left_eyeUpperLid_joint", "left_eyeball_joint", "nose_joint", "right_eye_joint", "right_eyeLowerLid_joint", "right_eyeUpperLid_joint", "right_eyeball_joint":
+                                    jointRadius *= 0.2
+                                    jointColor = .yellow
+                                case _ where jointName.rawValue.hasPrefix("spine_"):
+                                    jointRadius *= 0.75
+                                case "left_hand_joint", "right_hand_joint":
+                                    jointRadius *= 1
+                                    jointColor = .green
+                                case _ where jointName.rawValue.hasPrefix("left_hand") || jointName.rawValue.hasPrefix("right_hand"):
+                                    jointRadius *= 0.25
+                                    jointColor = .yellow
+                                case _ where jointName.rawValue.hasPrefix("left_toes") || jointName.rawValue.hasPrefix("right_toes"):
+                                    jointRadius *= 0.5
+                                    jointColor = .yellow
+                                default:
+                                    jointRadius = 0.05
+                                    jointColor = .green
+                            }
+                            
+                            /*
+                            print("--------------------------------------------")
+                            print(jointName.rawValue)
+                            let test = Transform(matrix: transform)
+                            // print("Matrix :", test.matrix)
+                            print("Translation :", test.translation)
+                            print("Rotation :", test.rotation)
+                            // print("Scale :", test.scale)
+                             */
+                            
+                            // Placement, creation and display of the spheres on the screen
+                            let position = bodyPosition + simd_make_float3(transform.columns.3)
+                            let newSphere = CustomSphere(color: jointColor, radius: jointRadius)
+                            newSphere.transform = Transform(scale: [1, 1, 1], rotation: bodyOrientation, translation: position)
+                            sphereAnchor.addChild(newSphere, preservingWorldTransform: true)
+                            jointSpheres.append(newSphere)
+                        }
+                    }
+                } else {
+                    // If the person has already been detected, and the joints need to be updated
+                    // let startTime2 = CFAbsoluteTimeGetCurrent()
+                    
+                    jsonDict = [:]
+                    
+                    jsonDict["bodyPosition"] = bodyPosition.debugDescription
+                    jsonDict["bodyOrientation"] = bodyOrientation.debugDescription
+                    
+                    for i in 0..<jointSpheres.count {
+                        // Joint-by-joint update
+                        let jointName = character.jointName(forPath: character.jointNames[i])
+                        if let transform = bodyAnchor.skeleton.modelTransform(for: jointName) {
+                            // See: https://developer.apple.com/forums/thread/132787
+                            let position = bodyPosition + bodyOrientation.act(simd_make_float3(transform.columns.3))
+                            jointSpheres[i].position = position
+                            jointSpheres[i].orientation = bodyOrientation
+                            
+                            if trackedJoints.contains(jointName.rawValue) {
+                                jsonDict[jointName.rawValue] = position.description
+                                // jsonDict[jointName.rawValue] = transform.debugDescription
+                            }
+                        }
+                    }
+                    
+                    // If recording is enabled, add the data of the various joints to the JSON array
+                    if recordState {
+                        jsonArr.append(jsonDict)
+                    }
+                    
+                    /*
+                    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime2
+                    print("Time (joints update)", Double(timeElapsed), "seconds")
+                     */
+                }
+            }
+        }
+        
+        /*
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        print("Time (session)", Double(timeElapsed), "seconds")
+         */
+    }
+}
+
+extension BodyTrackedEntity {
+    // Get the joint name from the path
+    func jointName(forPath path: String) -> ARSkeleton.JointName {
+        let splitPath = path.split(separator: "/")
+        return ARSkeleton.JointName(rawValue: String(splitPath[splitPath.count - 1]))
     }
 }

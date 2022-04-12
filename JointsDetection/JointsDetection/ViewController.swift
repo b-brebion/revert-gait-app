@@ -50,9 +50,10 @@ class ViewController: UIViewController, ARSessionDelegate {
         arView.session.delegate = self
         
         // If the iOS device doesn't support body tracking
+        /*
         guard ARBodyTrackingConfiguration.isSupported else {
             fatalError("This feature is only supported on devices with an A12 chip")
-        }
+        }*/
 
         // Run a body tracking configration
         let configuration = ARBodyTrackingConfiguration()

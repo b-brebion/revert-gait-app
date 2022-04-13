@@ -7,6 +7,7 @@ class CamViewVC: UIViewController, ARSessionDelegate {
     
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var arView: ARView!
+    @IBOutlet weak var recordBtn: UIButton!
     
     // The 3D character to display.
     var character: BodyTrackedEntity?
@@ -21,6 +22,9 @@ class CamViewVC: UIViewController, ARSessionDelegate {
     let sphereAnchor = AnchorEntity()
     // Array keeping the information of each joint
     var jointSpheres = [Entity]()
+    
+    // Path of the app folder to save the JSON file
+    let pathDirectory = getDocumentsDirectory()
     
     // Array keeping track of the joints at each joints update
     var jsonArr = [[String: String]]()
@@ -126,6 +130,60 @@ class CamViewVC: UIViewController, ARSessionDelegate {
             }
         }
     }*/
+    
+    
+    @IBAction func recordData(_ sender: Any) {
+        if recordState {
+            // End of recording
+            recordBtn.setTitle("Record", for: .normal)
+            recordBtn.setTitleColor(UIColor.black, for: .normal)
+            recordBtn.backgroundColor = UIColor.white
+            
+            // Allow the file name to match the date and time of the end of recording
+            let dateFormatter : DateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
+            let date = Date()
+            let dateString = dateFormatter.string(from: date) + ".json"
+            
+            do {
+                try FileManager().createDirectory(atPath: pathDirectory.relativePath, withIntermediateDirectories: true)
+            } catch {
+                print(error)
+            }
+            //try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+            let filePath = pathDirectory.appendingPathComponent(dateString)
+            
+            // Save the JSON array in a file
+            let json = try? JSONEncoder().encode(jsonArr)
+            do {
+                try json!.write(to: filePath)
+            } catch {
+                print("Failed to write JSON data: \(error.localizedDescription)")
+            }
+            
+            // Alert pop-up window
+            let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + dateString + ")", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            // Settings Menu Child Selected
+            
+            // TODO
+            /*
+            let saveVC = self.storyboard?.instantiateViewController(withIdentifier: "SaveVC")
+            self.navigationController.pushViewController(saveVC, animated: true)
+            */
+            
+            recordState = false
+        } else {
+            // Start of recording
+            recordBtn.setTitle("Stop recording", for: .normal)
+            recordBtn.setTitleColor(UIColor.white, for: .normal)
+            recordBtn.backgroundColor = UIColor(red: 255/255, green: 100/255, blue: 70/255, alpha: 1.0)
+
+            recordState = true
+        }
+    }
     
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         // Keeping the default frame rate at the moment (~ 240fps measured)
@@ -242,6 +300,11 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         print("Time (session)", Double(timeElapsed), "seconds")
          */
     }
+}
+
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
 }
 
 extension BodyTrackedEntity {

@@ -129,6 +129,8 @@
 			dependencies = (
 			);
 			name = MotionCapture;
+			packageProductDependencies = (
+			);
 			productName = "Medical Motion Capture";
 			productReference = 148ACCAD2631B152002E3931 /* MotionCapture.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +158,8 @@
 				Base,
 			);
 			mainGroup = 148ACCA42631B152002E3931;
+			packageReferences = (
+			);
 			productRefGroup = 148ACCAE2631B152002E3931 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

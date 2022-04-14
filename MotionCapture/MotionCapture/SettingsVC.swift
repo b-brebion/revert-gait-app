@@ -2,15 +2,12 @@ import UIKit
 
 class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var saveVideoSwitch: UISwitch!
-    @IBOutlet weak var autoGenSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let user = User.connectedUser()
-        saveVideoSwitch.isOn = user.saveVideo
-        autoGenSwitch.isOn = user.numExamMode
+        
     }
     
     let screenWidth = UIScreen.main.bounds.width - 10
@@ -184,7 +181,6 @@ class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     @IBAction func confirmBtn(_ sender: Any) {
-        User.changeSaveAndAuto(saveVid: saveVideoSwitch.isOn, autoGen: autoGenSwitch.isOn)
         self.dismiss(animated: true, completion: nil)
     }
     

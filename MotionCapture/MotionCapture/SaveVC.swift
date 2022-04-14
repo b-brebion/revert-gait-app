@@ -1,4 +1,5 @@
 import UIKit
+import PythonKit
 
 class SaveVC: UIViewController {
     
@@ -118,8 +119,13 @@ class SaveVC: UIViewController {
             print("Failed to write JSON data: \(error.localizedDescription)")
         }
         
-        let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + nomFichier() + ".json)", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + nomFichier() + ".json)", preferredStyle: UIAlertController.Style.alert)        
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { _ in
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }
 }

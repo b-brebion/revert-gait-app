@@ -23,8 +23,10 @@ class CamViewVC: UIViewController, ARSessionDelegate {
     // Array keeping the information of each joint
     var jointSpheres = [Entity]()
     
+    /*
     // Path of the app folder to save the JSON file
     let pathDirectory = getDocumentsDirectory()
+     */
     
     // Array keeping track of the joints at each joints update
     var jsonArr = [[String: String]]()
@@ -139,6 +141,7 @@ class CamViewVC: UIViewController, ARSessionDelegate {
             recordBtn.setTitleColor(UIColor.black, for: .normal)
             recordBtn.backgroundColor = UIColor.white
             
+            /*
             // Allow the file name to match the date and time of the end of recording
             let dateFormatter : DateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
@@ -160,19 +163,23 @@ class CamViewVC: UIViewController, ARSessionDelegate {
             } catch {
                 print("Failed to write JSON data: \(error.localizedDescription)")
             }
+             */
             
             // Alert pop-up window
+            /*
             let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + dateString + ")", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
+            */
+             
             // Settings Menu Child Selected
-            
             // TODO
             /*
             let saveVC = self.storyboard?.instantiateViewController(withIdentifier: "SaveVC")
             self.navigationController.pushViewController(saveVC, animated: true)
             */
+            
+            self.performSegue(withIdentifier: "showSaveVC", sender: nil)
             
             recordState = false
         } else {
@@ -300,12 +307,21 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         print("Time (session)", Double(timeElapsed), "seconds")
          */
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSaveVC" {
+            let savecVC = segue.destination as! SaveVC
+            savecVC.jsonArr = self.jsonArr
+        }
+    }
 }
 
+/*
 func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
 }
+ */
 
 extension BodyTrackedEntity {
     // Get the joint name from the path

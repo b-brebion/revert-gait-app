@@ -10,6 +10,9 @@ class SaveVC: UIViewController {
     // Datas
     var items:[User]?
     
+    // Array keeping track of the joints at each joints update
+    var jsonArr = [[String: String]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         /*
@@ -60,12 +63,15 @@ class SaveVC: UIViewController {
         return stringRetour
     }
 
-    // Various file saving and encryption tests
+    // Saves the video's datas into a json file wich can ba neamed by the user or not
     @IBAction func saveFileButton(_ sender: Any) {
         let connectedUser = getConnectedUser()
         print("Hospital Id: " + connectedUser.hospitalID! + "\nnom: " + connectedUser.familyName!)
         let filename = getDocumentsDirectory().appendingPathComponent(nomFichier() + ".json")
         print(filename)
+        
+        // If we need to encrypt our datas
+        /*
         let str = "Super long string"
         let data = Data(str.utf8)
         let key = "Secret key"
@@ -77,6 +83,7 @@ class SaveVC: UIViewController {
         
         do {
             try strEncrypt.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            print(dataEncrypt)
         } catch {
             // Bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
             print("Failed to write file")
@@ -91,8 +98,35 @@ class SaveVC: UIViewController {
         } catch let error {
             print("Failed to decrypt ")
             print(error)
+        }*/
+        
+        let pathDirectory = getDocumentsDirectory()
+        
+        do {
+            try FileManager().createDirectory(atPath: pathDirectory.relativePath, withIntermediateDirectories: true)
+        } catch {
+            print(error)
         }
+        //try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+        let filePath = pathDirectory.appendingPathComponent(nomFichier() + ".json")
+        
+        // Save the JSON array in a file
+        let json = try? JSONEncoder().encode(jsonArr)
+        do {
+            try json!.write(to: filePath)
+        } catch {
+            print("Failed to write JSON data: \(error.localizedDescription)")
+        }
+        
+        let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + nomFichier() + ".json)", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
+}
+
+func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
 }
 
 extension String {

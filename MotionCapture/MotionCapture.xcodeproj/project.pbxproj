@@ -23,6 +23,7 @@
 		1494329B26396975005ABAF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1494329A26396975005ABAF1 /* User.swift */; };
 		14F4ACDD263BF06100D3CE76 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */; };
 		14F4ACDF263C325A00D3CE76 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */; };
+		332AEA0A2808213A0003EDCA /* character in Resources */ = {isa = PBXBuildFile; fileRef = 332AEA092808213A0003EDCA /* character */; };
 		33C7FA182805AC9A00D35BB0 /* CustomSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		1494329A26396975005ABAF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		332AEA092808213A0003EDCA /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; name = character; path = ../../JointsDetection/JointsDetection/character; sourceTree = "<group>"; };
 		33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSphere.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				148ACCBE2631B155002E3931 /* Info.plist */,
+				332AEA092808213A0003EDCA /* character */,
 				148ACCB02631B152002E3931 /* AppDelegate.swift */,
 				148ACCB22631B152002E3931 /* SceneDelegate.swift */,
 				145BA17626380C3F00C1B1FB /* RNCryptor.swift */,
@@ -169,6 +172,7 @@
 			files = (
 				148ACCBD2631B155002E3931 /* LaunchScreen.storyboard in Resources */,
 				148ACCBA2631B155002E3931 /* Assets.xcassets in Resources */,
+				332AEA0A2808213A0003EDCA /* character in Resources */,
 				148ACCB82631B152002E3931 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

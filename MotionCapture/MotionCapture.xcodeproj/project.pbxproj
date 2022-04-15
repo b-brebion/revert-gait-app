@@ -24,6 +24,7 @@
 		14F4ACDD263BF06100D3CE76 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */; };
 		14F4ACDF263C325A00D3CE76 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */; };
 		332AEA0A2808213A0003EDCA /* character in Resources */ = {isa = PBXBuildFile; fileRef = 332AEA092808213A0003EDCA /* character */; };
+		335DBD9A2809753F00D7C282 /* ReadMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DBD992809753F00D7C282 /* ReadMeVC.swift */; };
 		33C7FA182805AC9A00D35BB0 /* CustomSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		332AEA092808213A0003EDCA /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; name = character; path = ../../JointsDetection/JointsDetection/character; sourceTree = "<group>"; };
+		335DBD992809753F00D7C282 /* ReadMeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeVC.swift; sourceTree = "<group>"; };
 		33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSphere.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */,
 				14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */,
 				33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */,
+				335DBD992809753F00D7C282 /* ReadMeVC.swift */,
 			);
 			path = MotionCapture;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				14F4ACDF263C325A00D3CE76 /* SignUpVC.swift in Sources */,
 				148ACCB32631B152002E3931 /* SceneDelegate.swift in Sources */,
 				143706DF26330500000C9459 /* CamViewVC.swift in Sources */,
+				335DBD9A2809753F00D7C282 /* ReadMeVC.swift in Sources */,
 				143706D92632CE6A000C9459 /* LogInVC.swift in Sources */,
 				145BA17726380C4000C1B1FB /* RNCryptor.swift in Sources */,
 				145BA174263800D100C1B1FB /* SaveVC.swift in Sources */,

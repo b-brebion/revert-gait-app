@@ -214,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibZ-dA-XEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957.97101449275374" y="358.92857142857139"/>
+            <point key="canvasLocation" x="957.55395683453241" y="358.79396984924625"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="GQK-TD-h0e">
@@ -335,7 +335,7 @@
             <objects>
                 <viewController storyboardIdentifier="SaveVC" id="cyO-RT-Vhh" customClass="SaveVC" customModule="MotionCapture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RrF-cd-uXa">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-LA-JjA">
@@ -344,7 +344,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
                                 <connections>
-                                    <segue destination="xsH-1e-QWm" kind="unwind" unwindAction="cancelButton:" id="UNZ-3f-HvP"/>
+                                    <action selector="deleteFile:" destination="cyO-RT-Vhh" eventType="touchUpInside" id="659-62-TjW"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom Fichier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pzx-Ht-AVM">
@@ -367,11 +367,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="54R-6q-gvq"/>
                     <connections>
+                        <outlet property="back" destination="ea2-LA-JjA" id="wkS-3s-wOm"/>
                         <outlet property="nomFichierField" destination="Pzx-Ht-AVM" id="nnf-hR-e11"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncc-gQ-QZR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="xsH-1e-QWm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1666" y="359"/>
         </scene>

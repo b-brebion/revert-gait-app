@@ -4,6 +4,7 @@ import PythonKit
 class SaveVC: UIViewController {
     
     @IBOutlet weak var nomFichierField: UITextField!
+    @IBOutlet weak var back: UIButton!
     
     // Reference to managed object context
     let contexte = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -126,6 +127,19 @@ class SaveVC: UIViewController {
             }
         })
         alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteFile(_ sender: Any?) {
+        let alert = UIAlertController(title: "WARNING !", message: "Are you sure you want to exit ?\n The video will not be saved", preferredStyle: UIAlertController.Style.alert)
+        let exit = UIAlertAction(title: "Exit", style: .default, handler: { _ in
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        let stay = UIAlertAction(title: "Stay", style: .default, handler: nil)
+        alert.addAction(exit)
+        alert.addAction(stay)
         self.present(alert, animated: true, completion: nil)
     }
 }

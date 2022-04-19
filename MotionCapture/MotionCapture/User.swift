@@ -19,12 +19,14 @@ class User: NSManagedObject {
         return res.count > 0
     }
     
+    /*
     static func validPwd(name: String, familyName: String, password: String) -> Bool {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "(name == %@) AND (familyName == %@) AND (password == %@)", name, familyName, password)
         let res = try! AppDelegate.viewContext.fetch(fetchRequest)
         return res.count > 0
     }
+     */
     
     static func connectDisconnect(name: String, familyName: String, state: Bool) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
@@ -85,6 +87,7 @@ class User: NSManagedObject {
         }
     }
     
+    /*
     static func changePwd(newPassword : String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "(isConnected == %@)", NSNumber(value: true))
@@ -95,6 +98,7 @@ class User: NSManagedObject {
             try? AppDelegate.viewContext.save()
         }
     }
+     */
     
     static func changeSaveAndAuto(saveVid: Bool, autoGen: Bool) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")

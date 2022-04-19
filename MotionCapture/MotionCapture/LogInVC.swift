@@ -3,7 +3,7 @@ import UIKit
 class LogInVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var pickerViewButton: UIButton!
-    @IBOutlet weak var pwdTextField: UITextField!
+    //@IBOutlet weak var pwdTextField: UITextField!
     
     let screenWidth = UIScreen.main.bounds.width - 10
     let screenHeight = UIScreen.main.bounds.height / 3
@@ -16,13 +16,17 @@ class LogInVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         return userLabel.text == "Name"
     }
     
+    /*
     func checkField() -> Bool {
         return pwdTextField.text!.trim().isEmpty
     }
+     */
     
+    /*
     func checkPwd() -> Bool {
         return User.validPwd(name: userName, familyName: userFamilyName, password: String(pwdTextField.text!.sdbmhash))
     }
+     */
     
     // Verification steps when a user is attempting to log in
     @IBAction func userConnect(_ sender: Any) {
@@ -30,20 +34,22 @@ class LogInVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             let alert = UIAlertController(title: "Can't connect", message: "Please choose a valid user", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             self.present(alert, animated: true)
-        } else if checkField() {
+        /*} else if checkField() {
             let alert = UIAlertController(title: "Can't connect", message: "Please enter a password", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             self.present(alert, animated: true)
-        } else if checkPwd() {
+         */
+        } else /*if checkPwd() */{
             User.connectDisconnect(name: userName, familyName: userFamilyName, state: true)
             let camViewVC = self.storyboard?.instantiateViewController(withIdentifier: "CamViewVC") as! CamViewVC
             camViewVC.modalPresentationStyle = .fullScreen
             self.present(camViewVC, animated: true, completion: nil)
-        } else {
+        }/* else {
             let alert = UIAlertController(title: "Can't connect", message: "Invalid password", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
+          */
     }
     
     // Pop-up picker view to choose the user to connect with

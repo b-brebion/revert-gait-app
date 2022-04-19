@@ -24,12 +24,34 @@ class SaveVC: UIViewController {
         fetchUser()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        alertEmpty(test: jsonArr.isEmpty)
+    }
+    
     func fetchUser() {
         do {
             self.items = try! contexte.fetch(User.fetchRequest())
         }
         catch {
             
+        }
+    }
+    
+    func alertEmpty(test: Bool){
+        print(test)
+        if test {
+            let alert = UIAlertController(title: "WARNING !", message: "you did not record anything,\n Be sure that joints appear when your recording people !", preferredStyle: UIAlertController.Style.alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+            let continueAnyway = UIAlertAction(title: "Continue Anyway", style: .default, handler: nil)
+            alert.addAction(cancel)
+            alert.addAction(continueAnyway)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

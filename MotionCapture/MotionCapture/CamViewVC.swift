@@ -48,10 +48,9 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         
         // If the iOS device doesn't support body tracking, raise a developer error for
         // this unhandled case.
-        /*
         guard ARBodyTrackingConfiguration.isSupported else {
             fatalError("This feature is only supported on devices with an A12 chip")
-        }*/
+        }
 
         // Run a body tracking configration.
         let configuration = ARBodyTrackingConfiguration()
@@ -182,6 +181,10 @@ class CamViewVC: UIViewController, ARSessionDelegate {
             self.performSegue(withIdentifier: "showSaveVC", sender: nil)
             
             recordState = false
+            
+            //reset values after we sent them into the saveVC
+            jsonArr = [[String: String]]()
+            jsonDict = [:]
         } else {
             // Start of recording
             recordBtn.setTitle("Stop recording", for: .normal)

@@ -115,7 +115,7 @@
             <objects>
                 <viewController storyboardIdentifier="ReadMe" id="mkn-6X-8OX" customClass="ReadMeVC" customModule="MotionCapture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FFL-tN-CdU">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ReadMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qv1-QG-5Xh">
@@ -159,7 +159,7 @@
             <objects>
                 <viewController storyboardIdentifier="Step1VC" id="qad-8c-kVx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rSH-hK-EYZ">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Step 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-wu-2Dk">
@@ -204,7 +204,7 @@
             <objects>
                 <viewController storyboardIdentifier="LogInVC" id="RUh-kn-YVD" customClass="LogInVC" customModule="MotionCapture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DgW-GR-A4f">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-BC-J4j">
@@ -217,12 +217,6 @@
                                     <segue destination="L0Y-YV-o4I" kind="unwind" unwindAction="cancelButton:" id="c1c-sR-Ndz"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uLy-j2-Fo0">
-                                <rect key="frame" x="63" y="220" width="288" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dun-11-Xf1">
                                 <rect key="frame" x="178" y="305" width="59" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -261,7 +255,6 @@
                     <navigationItem key="navigationItem" id="UDi-fj-AL4"/>
                     <connections>
                         <outlet property="pickerViewButton" destination="Inp-lG-XIp" id="sb0-ls-f9M"/>
-                        <outlet property="pwdTextField" destination="uLy-j2-Fo0" id="czC-Af-mcJ"/>
                         <outlet property="userLabel" destination="3ro-zm-kEl" id="4aa-Oc-GKL"/>
                     </connections>
                 </viewController>
@@ -319,7 +312,7 @@
             <objects>
                 <viewController storyboardIdentifier="Step2VC" id="rkR-yQ-ajf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qpf-Cx-8eP">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Step2" translatesAutoresizingMaskIntoConstraints="NO" id="eZl-on-SNR">
@@ -364,7 +357,7 @@
             <objects>
                 <viewController id="hRK-tO-bEw" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bl2-Zk-i1V">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Step4" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-p0-Y0l">
@@ -410,7 +403,7 @@
             <objects>
                 <viewController id="R4G-gx-okH" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XNu-cm-IsO">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW2-vY-lFo">
@@ -569,7 +562,7 @@
             <objects>
                 <viewController storyboardIdentifier="SaveVC" id="cyO-RT-Vhh" customClass="SaveVC" customModule="MotionCapture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RrF-cd-uXa">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-LA-JjA">
@@ -614,15 +607,9 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpVC" id="Wro-HO-FhO" customClass="SignUpVC" customModule="MotionCapture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8TI-mF-V80">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="995"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IRH-xF-wrt">
-                                <rect key="frame" x="92" y="422" width="230" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Family Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4jl-qw-ujq">
                                 <rect key="frame" x="92" y="228" width="230" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -634,12 +621,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DYp-t4-GHq">
-                                <rect key="frame" x="92" y="484" width="230" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hospital ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYi-N3-X16">
                                 <rect key="frame" x="92" y="357" width="144" height="33"/>
@@ -687,13 +668,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="auJ-rs-uhv"/>
                     <connections>
-                        <outlet property="confirmPwdTextField" destination="DYp-t4-GHq" id="nE2-DP-n8k"/>
                         <outlet property="emailTextField" destination="fov-2d-sfB" id="MWb-ot-YGY"/>
                         <outlet property="familyNameTextField" destination="4jl-qw-ujq" id="euZ-Tx-ZBS"/>
                         <outlet property="hospitalLabel" destination="FYi-N3-X16" id="2gf-k7-6fj"/>
                         <outlet property="hospitalPickerViewButton" destination="w0O-6x-gSS" id="8g3-PW-n2S"/>
                         <outlet property="nameTextField" destination="TAa-6u-17J" id="TgE-r1-nrN"/>
-                        <outlet property="pwdTextField" destination="IRH-xF-wrt" id="SUR-4J-vtr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rC3-RP-Qrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -6,6 +6,10 @@ let joints = {};
 
 let stepIndex = 1;
 
+let stopIndex = 1;
+
+let isAnimating = false;
+
 let xMin,
     yMin,
     zMin;
@@ -113,31 +117,30 @@ function getData(key, index) {
 function getDataStep(index) {
     console.log(datas.length)
     if (index >= datas.length) {
-        clearInterval(interval)
-        stepIndex = 1
+        stopAnimate()
         return
     }
     for (const key in joints) {
         if (!isNaN(getData(key, 0)[0])) {
             joints[key]['x'] = [getData(key, index)[0]]
-            joints[key]['y'] = [getData(key, index)[1]]
-            joints[key]['z'] = [getData(key, index)[2]]
+            joints[key]['z'] = [getData(key, index)[1]]
+            joints[key]['y'] = [getData(key, index)[2]]
                 //console.log(joints[key]['x'])
                 //console.log(getData(key, index)[0])
             if (index == 0 && !isNaN(xMax)) {
                 xMin = Math.min(getData(key, index)[0], xMin)
-                yMin = Math.min(getData(key, index)[1], yMin)
-                zMin = Math.min(getData(key, index)[2], zMin)
+                yMin = Math.min(getData(key, index)[2], yMin)
+                zMin = Math.min(getData(key, index)[1], zMin)
                 xMax = Math.max(getData(key, index)[0], xMax)
-                yMax = Math.max(getData(key, index)[1], yMax)
-                zMax = Math.max(getData(key, index)[2], zMax)
+                yMax = Math.max(getData(key, index)[2], yMax)
+                zMax = Math.max(getData(key, index)[1], zMax)
             } else if (isNaN(xMax)) {
                 xMin = getData(key, index)[0]
-                yMin = getData(key, index)[1]
-                zMin = getData(key, index)[2]
+                yMin = getData(key, index)[2]
+                zMin = getData(key, index)[1]
                 xMax = getData(key, index)[0]
-                yMax = getData(key, index)[1]
-                zMax = getData(key, index)[2]
+                yMax = getData(key, index)[2]
+                zMax = getData(key, index)[1]
             }
         }
     }
@@ -158,13 +161,32 @@ function getDataStep(index) {
 }
 
 function animation() {
-    interval = setInterval(increment, 1000 / 60);
+    if (!isAnimating) {
+        interval = setInterval(increment, 1000 / 60);
+        isAnimating = true
+    }
 }
 
 function increment() {
     stepIndex++;
     console.log(stepIndex)
     nextStep()
+}
+
+function resume() {
+    if (!isAnimating) {
+        stepIndex = stopIndex
+        animation()
+    }
+}
+
+function stopAnimate() {
+    if (isAnimating) {
+        clearInterval(interval)
+        stopIndex = stepIndex
+        stepIndex = 1
+        isAnimating = false
+    }
 }
 
 function nextStep() {
@@ -187,7 +209,9 @@ function nextStep() {
 //La ligne avec body orientation sera surement retirer par la suite ou recevra un traitement spécial
 function setDatas() {
     for (const [key] of datas[0]) {
-        joints[key] = createDico(0)
+        if (key != 'bodyOrientation') {
+            joints[key] = createDico(0)
+        }
     }
 
     var data = getDataStep(0)
@@ -201,13 +225,13 @@ function setDatas() {
         },
         scene: {
             xaxis: {
-                range: [xMin - 1, xMax + 1],
+                range: [xMin - 3, xMax + 3],
             },
             yaxis: {
-                range: [yMin - 1, yMax + 1],
+                range: [yMin - 3, yMax + 3],
             },
             zaxis: {
-                range: [zMin - 1, zMax + 1],
+                range: [zMin - 0.5, zMax + 0.5],
             },
             aspectratio: {
                 x: 1,
@@ -220,7 +244,7 @@ function setDatas() {
             text: "jsonPlot",
             xanchor: "center"
         },
-        width: 700,
+        width: 900,
         height: 700,
         autosize: false
     };

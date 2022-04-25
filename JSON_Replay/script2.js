@@ -4,12 +4,15 @@ let datas = [];
 // les joints provenant du json sous forme de tableau associatif
 let joints = {};
 
+// Actual step of the animation
 let stepIndex = 1;
 
+// Step when the Stop button have been pressed
 let stopIndex = 1;
 
 let isAnimating = false;
 
+//Values used to correctly scale the plot layout
 let xMin,
     yMin,
     zMin;
@@ -17,6 +20,7 @@ let xMax,
     yMax,
     zMax;
 
+// Declare of the interval variable wich allows to display things over time
 let interval;
 
 fileSelector.addEventListener('change', (event) => {
@@ -56,23 +60,6 @@ fileSelector.addEventListener('change', (event) => {
     //readImage(fileList[0])
 });
 
-/*
-function readImage(file) {
-    // Check if the file is an image.
-    if (file.type && !file.type.startsWith('image/')) {
-        console.log('File is not an image.', file.type, file);
-        return;
-    }
-
-    const reader = new FileReader();
-    reader.addEventListener('load', (event) => {
-        img.src = event.target.result;
-    });
-    reader.readAsText(file);
-    console.log(reader.result)
-}
-*/
-
 function createDico(i) {
     return {
         x: [i],
@@ -90,8 +77,6 @@ function createDico(i) {
         type: 'scatter3d'
     };
 }
-
-//var myPlot = Plotly.newPlot
 
 //renvoie les données correspondant à la cle et à l'index donnée en parametres
 //sous la forme d'un tableau de float à 3 dimensions
@@ -160,6 +145,8 @@ function getDataStep(index) {
     return data
 }
 
+//launch the animation if not already, Change the second parameter
+//of the setInterval function to change the speed animation
 function animation() {
     if (!isAnimating) {
         interval = setInterval(increment, 1000 / 60);
@@ -167,12 +154,14 @@ function animation() {
     }
 }
 
+//Simple incrementation used in the setInterval function
 function increment() {
     stepIndex++;
     console.log(stepIndex)
     nextStep()
 }
 
+// make the animation resume where it has been stopped
 function resume() {
     if (!isAnimating) {
         stepIndex = stopIndex
@@ -180,6 +169,7 @@ function resume() {
     }
 }
 
+//stop the animation
 function stopAnimate() {
     if (isAnimating) {
         clearInterval(interval)
@@ -189,6 +179,7 @@ function stopAnimate() {
     }
 }
 
+//load the next position of each points in the plot
 function nextStep() {
     Plotly.animate('myDiv', {
         data: getDataStep(stepIndex),

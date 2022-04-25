@@ -1,0 +1,35 @@
+HTML JSResult Skip Results Iframe EDIT ON
+
+<head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<p>
+    Here's a simple Plotly plot -
+    <a href="https://bit.ly/1Or9igj">plotly.js documentation</a>
+</p>
+
+<!-- Plots go in blank <div> elements. 
+    You can size them in the plot layout,
+    or give the div a size as shown here.
+-->
+<div id="myDiv"></div>
+<div>
+    <button onclick="animation()">Next</button>
+</div>
+<label>Vore nom :
+    <input type="text" id="ajaxTextbox" />
+  </label>
+<span id="ajaxButton">
+    Lancer une requête
+  </span>
+<br>
+
+<!-- The `multiple` attribute lets users select multiple files. -->
+<input type="file" id="file-selector" accept=".json">
+<span id="monJson">Mon json:</span>
+<script src="./script2.js" charset="utf-8"></script>

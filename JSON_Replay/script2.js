@@ -12,6 +12,9 @@ let stopIndex = 1;
 
 let isAnimating = false;
 
+// The animation Speed (the refresh every x milliseconds) seems to be caped
+let animationSpeed = 16
+
 //Values used to correctly scale the plot layout
 let xMin,
     yMin,
@@ -149,7 +152,7 @@ function getDataStep(index) {
 //of the setInterval function to change the speed animation
 function animation() {
     if (!isAnimating) {
-        interval = setInterval(increment, 1000 / 60);
+        interval = setInterval(increment, animationSpeed);
         isAnimating = true
     }
 }
@@ -187,11 +190,11 @@ function nextStep() {
         layout: {}
     }, {
         transition: {
-            duration: 60,
+            duration: animationSpeed,
             easing: 'linear'
         },
         frame: {
-            duration: 60
+            duration: animationSpeed
         }
     })
 }

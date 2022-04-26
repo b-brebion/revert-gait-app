@@ -13,7 +13,7 @@ let stopIndex = 1;
 let isAnimating = false;
 
 // The animation Speed (the refresh every x milliseconds) seems to be caped
-let animationSpeed = 16
+let animationSpeed = 30
 
 //Values used to correctly scale the plot layout
 let xMin,
@@ -103,7 +103,7 @@ function getData(key, index) {
 
 //return le tableau de donnée correspondant à l'étape donné en paramètre
 function getDataStep(index) {
-    console.log(datas.length)
+    //console.log(datas.length)
     if (index >= datas.length) {
         stopAnimate()
         return
@@ -133,12 +133,14 @@ function getDataStep(index) {
         }
     }
 
+    /*
     console.log("xMin:", xMin)
     console.log("yMin:", yMin)
     console.log("zMin:", zMin)
     console.log("xMax:", xMax)
     console.log("yMax:", yMax)
     console.log("zMax:", zMax)
+    */
 
     var data = [];
     for (const key in joints) {
@@ -151,6 +153,7 @@ function getDataStep(index) {
 //launch the animation if not already, Change the second parameter
 //of the setInterval function to change the speed animation
 function animation() {
+    console.log(animationSpeed)
     if (!isAnimating) {
         interval = setInterval(increment, animationSpeed);
         isAnimating = true
@@ -182,6 +185,27 @@ function stopAnimate() {
     }
 }
 
+/*
+function defSpeed(value = 0, mySpeed = 16) {
+    stopAnimate();
+    switch (value) {
+        case 0:
+            animationSpeed = 16;
+            break;
+        case 1:
+            animationSpeed = 8;
+            break;
+        case 2:
+            animationSpeed = 5.33;
+            break;
+        case 3:
+            animationSpeed = mySpeed
+            break;
+    }
+    resume();
+}
+*/
+
 //load the next position of each points in the plot
 function nextStep() {
     Plotly.animate('myDiv', {
@@ -194,7 +218,7 @@ function nextStep() {
             easing: 'linear'
         },
         frame: {
-            duration: animationSpeed
+            duration: animationSpeed,
         }
     })
 }
@@ -212,10 +236,10 @@ function setDatas() {
     console.log(data)
     var layout = {
         margin: {
-            l: 50,
-            r: 50,
-            b: 100,
-            t: 100,
+            l: 0,
+            r: 0,
+            b: 0,
+            t: 0,
         },
         scene: {
             xaxis: {
@@ -238,7 +262,7 @@ function setDatas() {
             text: "jsonPlot",
             xanchor: "center"
         },
-        width: 900,
+        width: 1200,
         height: 700,
         autosize: false
     };

@@ -1,8 +1,12 @@
 const fileSelector = document.getElementById('file-selector');
+const aButtons = document.getElementById("animationButtons");
 // Les données du jon
 let datas = [];
 // les joints provenant du json sous forme de tableau associatif
 let joints = {};
+
+//If a file has been selected or not
+let selectedFile = false;
 
 // Actual step of the animation
 let stepIndex = 1;
@@ -26,7 +30,13 @@ let xMax,
 // Declare of the interval variable wich allows to display things over time
 let interval;
 
+aButtons.style.display = "none";
+console.log(aButtons.style.display)
+
 fileSelector.addEventListener('change', (event) => {
+    //Display animation's Buttons
+    aButtons.style.display = "block";
+
     const fileList = event.target.files;
     console.log(fileList);
     console.log(fileList[0])
@@ -47,15 +57,15 @@ fileSelector.addEventListener('change', (event) => {
             }
             //console.log(tabTmp)
             datas.push(tabTmp)
-            //domString += "\n"
+                //domString += "\n"
                 /*
                 console.log(i++)
                 domString += Object.entries(element) + "\n\n"
                 */
         });
         //document.getElementById('monJson').innerText += domString
-            //console.log(resultat[0])
-            //console.log(datas)
+        //console.log(resultat[0])
+        //console.log(datas)
         setDatas()
     });
     reader.readAsText(fileList[0])

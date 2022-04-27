@@ -1,6 +1,7 @@
 const fileSelector = document.getElementById('file-selector');
 const aButtons = document.getElementById("animationButtons");
-// Les données du jon
+const speedInput = document.getElementById("speedInput")
+    // Les données du jon
 let datas = [];
 // les joints provenant du json sous forme de tableau associatif
 let joints = {};
@@ -31,7 +32,8 @@ let xMax,
 let interval;
 
 aButtons.style.display = "none";
-console.log(aButtons.style.display)
+
+speedInput.addEventListener("input", changeSpeed);
 
 fileSelector.addEventListener('change', (event) => {
     //Display animation's Buttons
@@ -160,6 +162,24 @@ function getDataStep(index) {
     return data
 }
 
+function changeSpeed() {
+    let speedValue = speedInput.value
+
+    if (speedValue == "" || Number(speedValue) < 5) {
+        return
+    }
+    animationSpeed = 1000 / Number(speedValue)
+    if (isAnimating) {
+        stopAnimate()
+        resume()
+    } else {
+        animation()
+    }
+
+
+}
+
+
 //launch the animation if not already, Change the second parameter
 //of the setInterval function to change the speed animation
 function animation() {
@@ -194,27 +214,6 @@ function stopAnimate() {
         isAnimating = false
     }
 }
-
-/*
-function defSpeed(value = 0, mySpeed = 16) {
-    stopAnimate();
-    switch (value) {
-        case 0:
-            animationSpeed = 16;
-            break;
-        case 1:
-            animationSpeed = 8;
-            break;
-        case 2:
-            animationSpeed = 5.33;
-            break;
-        case 3:
-            animationSpeed = mySpeed
-            break;
-    }
-    resume();
-}
-*/
 
 //load the next position of each points in the plot
 function nextStep() {

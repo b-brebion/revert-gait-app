@@ -36,24 +36,24 @@ fileSelector.addEventListener('change', (event) => {
         resultat = JSON.parse(resultat)
         let i = 0;
         //console.log(resultat.length)
-        let domString = "\n"
+        //let domString = "\n"
         resultat.forEach(element => {
             var tabTmp = []
             for (const [key, value] of Object.entries(element)) {
                 //console.log(`${key}: ${value}`);
                 //console.log(i++)
-                domString += `${key}: ${value}` + "\n"
+                //domString += `${key}: ${value}` + "\n"
                 tabTmp.push([key, value])
             }
             //console.log(tabTmp)
             datas.push(tabTmp)
-            domString += "\n"
+            //domString += "\n"
                 /*
                 console.log(i++)
                 domString += Object.entries(element) + "\n\n"
                 */
         });
-        document.getElementById('monJson').innerText += domString
+        //document.getElementById('monJson').innerText += domString
             //console.log(resultat[0])
             //console.log(datas)
         setDatas()

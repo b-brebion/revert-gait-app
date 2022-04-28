@@ -18,7 +18,7 @@ The ARKit fonctionalities of the *JointsDetection* file has veend implemented wi
 
 #### <a name="main">Main Menu</a>
 <center>
-<img src="Assets/001.png" alt="Main Menu" width="250"/>
+<img src="Assets/001.PNG" alt="Main Menu" width="250"/>
 </center>
 
 This is the first menu you'll see after you launched the app.
@@ -33,7 +33,7 @@ Actions of every buttons on the Main Menu:
 
 #### <a>Sign up Menu</a>
 <center>
-<img src="Assets/003.png" alt="Log in Menu" width="250"/>
+<img src="Assets/003.PNG" alt="Log in Menu" width="250"/>
 </center>
 
 This menu is where you create your account.
@@ -47,11 +47,11 @@ Fields:
 
 #### <a>Log in Menu</a>
 <center>
-<img src="Assets/002.png" alt="Sign in Menu" width="250"/>
+<img src="Assets/002.PNG" alt="Sign in Menu" width="250"/>
 </center>
 
 #### <a name="record"> Record Menu </a>
-<img src="Assets/004.png" alt="Record Menu" width="250"/>
-<img src="Assets/005.png" alt="Save File Menu" width="250"/>
-<img src="Assets/006.png" alt="Save File Alert" width="250"/>
-<img src="Assets/007.png" alt="App Directory" width="250"/>
+<img src="Assets/004.PNG" alt="Record Menu" width="250"/>
+<img src="Assets/005.PNG" alt="Save File Menu" width="250"/>
+<img src="Assets/006.PNG" alt="Save File Alert" width="250"/>
+<img src="Assets/007.PNG" alt="App Directory" width="250"/>

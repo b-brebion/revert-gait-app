@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/benoit/Documents/Benoit/revert-gait-app/Medical Motion Capture/MotionCapture.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

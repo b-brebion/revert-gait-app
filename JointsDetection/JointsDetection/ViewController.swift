@@ -50,9 +50,10 @@ class ViewController: UIViewController, ARSessionDelegate {
         arView.session.delegate = self
         
         // If the iOS device doesn't support body tracking
+        /*
         guard ARBodyTrackingConfiguration.isSupported else {
             fatalError("This feature is only supported on devices with an A12 chip")
-        }
+        }*/
 
         // Run a body tracking configration
         let configuration = ARBodyTrackingConfiguration()
@@ -211,7 +212,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             let date = Date()
             let dateString = dateFormatter.string(from: date) + ".json"
             
-            try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+            try? FileManager.default.createDirectory(at: pathDirectory.absoluteURL, withIntermediateDirectories: true)
             let filePath = pathDirectory.appendingPathComponent(dateString)
             
             // Save the JSON array in a file
@@ -223,7 +224,7 @@ class ViewController: UIViewController, ARSessionDelegate {
             }
             
             // Alert pop-up window
-            let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + dateString + ")", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + getDocumentsDirectory().absoluteString + ")", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             

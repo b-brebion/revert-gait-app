@@ -2,15 +2,12 @@ import UIKit
 
 class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var saveVideoSwitch: UISwitch!
-    @IBOutlet weak var autoGenSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let user = User.connectedUser()
-        saveVideoSwitch.isOn = user.saveVideo
-        autoGenSwitch.isOn = user.numExamMode
+        
     }
     
     let screenWidth = UIScreen.main.bounds.width - 10
@@ -143,9 +140,11 @@ class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                 self.errorAlert(msg: "At least one of the three fields has not been completed. The password has not been changed")
             } else if newPassword != confirmNewPassword {
                 self.errorAlert(msg: "Please type the same new password for both fields")
-            } else if User.validPwd(name : user.name!, familyName : user.familyName! , password : String(actualPassword!.sdbmhash)) {
+            /*
+             } else if User.validPwd(name : user.name!, familyName : user.familyName! , password : String(actualPassword!.sdbmhash)) {
                 User.changePwd(newPassword: String(newPassword!.sdbmhash))
                 self.successAlert()
+             */
             } else {
                 self.errorAlert(msg: "Invalid password")
             }
@@ -166,6 +165,7 @@ class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
 
             if pwd!.trim().isEmpty {
                 self.errorAlert(msg: "Please enter your password")
+            /*
             } else if User.validPwd(name : user.name!, familyName : user.familyName! , password : String(pwd!.sdbmhash)) {
                 let alert = UIAlertController(title: "DELETE ACCOUNT", message: "Are you sure to delete your account?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
@@ -176,6 +176,7 @@ class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                     self.present(menuVC, animated: true, completion: nil)
                 }))
                 self.present(alert, animated: true)
+             */
             } else {
                 self.errorAlert(msg: "Invalid password")
             }
@@ -184,7 +185,6 @@ class SettingsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     @IBAction func confirmBtn(_ sender: Any) {
-        User.changeSaveAndAuto(saveVid: saveVideoSwitch.isOn, autoGen: autoGenSwitch.isOn)
         self.dismiss(animated: true, completion: nil)
     }
     

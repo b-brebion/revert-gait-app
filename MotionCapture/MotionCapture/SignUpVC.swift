@@ -6,8 +6,10 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var hospitalLabel: UILabel!
     @IBOutlet weak var hospitalPickerViewButton: UIButton!
+    /*
     @IBOutlet weak var pwdTextField: UITextField!
     @IBOutlet weak var confirmPwdTextField: UITextField!
+     */
     
     let screenWidth = UIScreen.main.bounds.width - 10
     let screenHeight = UIScreen.main.bounds.height / 3
@@ -16,16 +18,19 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var serviceList = ["CHUA", "CHUB", "CHUC", "CUH", "etc..."]
     
     func checkFields() -> Bool {
-        return nameTextField.text!.trim().isEmpty || familyNameTextField.text!.trim().isEmpty || emailTextField.text!.trim().isEmpty || pwdTextField.text!.trim().isEmpty || confirmPwdTextField.text!.trim().isEmpty
+        return nameTextField.text!.trim().isEmpty || familyNameTextField.text!.trim().isEmpty || emailTextField.text!.trim().isEmpty
+        //|| pwdTextField.text!.trim().isEmpty || confirmPwdTextField.text!.trim().isEmpty
     }
     
     func checkHospital() -> Bool {
         return hospitalLabel.text == "Hospital ID"
     }
     
+    /*
     func checkPassword() -> Bool {
         return pwdTextField.text != confirmPwdTextField.text
     }
+     */
     
     func checkEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -44,7 +49,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         user.familyName = familyNameTextField.text
         user.email = emailTextField.text
         user.hospitalID = hospitalLabel.text
-        user.password = String(pwdTextField.text!.sdbmhash)
+        //user.password = String(pwdTextField.text!.sdbmhash)
         user.isConnected = false
         user.saveVideo = false
         user.numExamMode = false
@@ -56,7 +61,7 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             print(user.familyName!)
             print(user.email!)
             print(user.hospitalID!)
-            print(user.password!)
+         //   print(user.password!)
             print(user.isConnected)
             print(user.saveVideo)
             print(user.numExamMode)
@@ -73,10 +78,12 @@ class SignUpVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             let alert = UIAlertController(title: "Can't create account", message: "Please pick a valid hospital ID", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             self.present(alert, animated: true)
+        /*
         } else if checkPassword() {
             let alert = UIAlertController(title: "Can't create account", message: "Please type the same password for both fields", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             self.present(alert, animated: true)
+         */
         } else if checkEmail() {
             let alert = UIAlertController(title: "Can't create account", message: "Please enter a valid email address", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))

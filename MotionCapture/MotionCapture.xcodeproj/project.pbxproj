@@ -23,6 +23,9 @@
 		1494329B26396975005ABAF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1494329A26396975005ABAF1 /* User.swift */; };
 		14F4ACDD263BF06100D3CE76 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */; };
 		14F4ACDF263C325A00D3CE76 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */; };
+		332AEA0A2808213A0003EDCA /* character in Resources */ = {isa = PBXBuildFile; fileRef = 332AEA092808213A0003EDCA /* character */; };
+		335DBD9A2809753F00D7C282 /* ReadMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DBD992809753F00D7C282 /* ReadMeVC.swift */; };
+		33C7FA182805AC9A00D35BB0 /* CustomSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		1494329A26396975005ABAF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		332AEA092808213A0003EDCA /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; name = character; path = ../../JointsDetection/JointsDetection/character; sourceTree = "<group>"; };
+		335DBD992809753F00D7C282 /* ReadMeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeVC.swift; sourceTree = "<group>"; };
+		33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSphere.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				148ACCBE2631B155002E3931 /* Info.plist */,
+				332AEA092808213A0003EDCA /* character */,
 				148ACCB02631B152002E3931 /* AppDelegate.swift */,
 				148ACCB22631B152002E3931 /* SceneDelegate.swift */,
 				145BA17626380C3F00C1B1FB /* RNCryptor.swift */,
@@ -94,6 +101,8 @@
 				145BA173263800D100C1B1FB /* SaveVC.swift */,
 				14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */,
 				14F4ACDC263BF06100D3CE76 /* SettingsVC.swift */,
+				33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */,
+				335DBD992809753F00D7C282 /* ReadMeVC.swift */,
 			);
 			path = MotionCapture;
 			sourceTree = "<group>";
@@ -123,6 +132,8 @@
 			dependencies = (
 			);
 			name = MotionCapture;
+			packageProductDependencies = (
+			);
 			productName = "Medical Motion Capture";
 			productReference = 148ACCAD2631B152002E3931 /* MotionCapture.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +161,8 @@
 				Base,
 			);
 			mainGroup = 148ACCA42631B152002E3931;
+			packageReferences = (
+			);
 			productRefGroup = 148ACCAE2631B152002E3931 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,6 +179,7 @@
 			files = (
 				148ACCBD2631B155002E3931 /* LaunchScreen.storyboard in Resources */,
 				148ACCBA2631B155002E3931 /* Assets.xcassets in Resources */,
+				332AEA0A2808213A0003EDCA /* character in Resources */,
 				148ACCB82631B152002E3931 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,9 +194,11 @@
 				148ACCB52631B152002E3931 /* MenuVC.swift in Sources */,
 				148ACCB12631B152002E3931 /* AppDelegate.swift in Sources */,
 				14F4ACDD263BF06100D3CE76 /* SettingsVC.swift in Sources */,
+				33C7FA182805AC9A00D35BB0 /* CustomSphere.swift in Sources */,
 				14F4ACDF263C325A00D3CE76 /* SignUpVC.swift in Sources */,
 				148ACCB32631B152002E3931 /* SceneDelegate.swift in Sources */,
 				143706DF26330500000C9459 /* CamViewVC.swift in Sources */,
+				335DBD9A2809753F00D7C282 /* ReadMeVC.swift in Sources */,
 				143706D92632CE6A000C9459 /* LogInVC.swift in Sources */,
 				145BA17726380C4000C1B1FB /* RNCryptor.swift in Sources */,
 				145BA174263800D100C1B1FB /* SaveVC.swift in Sources */,
@@ -336,7 +352,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29T9L64KK2;
+				DEVELOPMENT_TEAM = 3TDA3DH474;
 				INFOPLIST_FILE = MotionCapture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

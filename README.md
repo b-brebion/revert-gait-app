@@ -1,22 +1,48 @@
-# revert-gait-app
+<img src="Assets/revert-logo.png" alt="revert logo">
 
+# revert-gait-app
 ## :file_folder: JointsDetection
 #### Content
 Simple ARKit Motion Capture app with custom joints (not a .usdz model) and the ability to save the capture to a JSON file.
-#### To be done
-- Async body detection (in order to remove the small lag at the beginning)
-- More information in the JSON file (e.g. about the position of the camera?)
-- Try to have vectors between the joints displayed on the screen
-- Various code optimisations
 
 ## :file_folder: MotionCapture
 #### Content
-Skeleton of the main app with the possibility of creating accounts, logging in etc...
+Skeleton of the main app with the possibility of creating accounts, logging in.
+The ARKit fonctionalities of the *JointsDetection* file has veend implemented with also the ability to capture and save the JSON file.
 #### To be done
-- ARKit implementation
-- Addition and modification of features to meet the specifications
-- Responsive design (only designed for iPhone screen format at the moment)
+- Responsive design (Only a responsive draft has been done)
 - Front / Visual update
-#### Screenshots (not definitive design)
-<img src="Screenshots/MMC-screen1.png" alt="MMC-Screen1" width="200"/> <img src="Screenshots/MMC-screen2.png" alt="MMC-Screen2" width="200"/> <img src="Screenshots/MMC-screen3.png" alt="MMC-Screen3" width="200"/>  
-<img src="Screenshots/MMC-screen4.png" alt="MMC-Screen4" width="200"/> <img src="Screenshots/MMC-screen5.png" alt="MMC-Screen5" width="200"/> <img src="Screenshots/MMC-screen6.png" alt="MMC-Screen6" width="200"/>
+- Update the ReadMe part on the app
+---
+### Screenshots (not definitive design)
+
+#### <a name="main">Main Menu</a>
+<center>
+<img src="Assets/001.png" alt="Main Menu" width="250"/>
+</center>
+
+This is the first menu you'll see after you launched the app.
+In this menu you have differents choices which are: Sign Up, Log In, ReadMe, Delete
+When you'll be connected, the app will automatically change the menu to the record one (see the [*Record Menu*](#record))
+
+Actions of every buttons on the Main Menu:
+- Sign Up: Present the Sign up menu wich, as named, allows you to create a new account
+- Log in: Present the Log in menu wich allows you to connect to your account
+- ReadMe: The documentation about a normal running of the app
+- Delete: Delete every person registered in the database (Has to be changed)
+
+#### <a>Sign in Menu</a>
+<center>
+<img src="Assets/003.png" alt="Log in Menu" width="250"/>
+</center>
+
+This menu is where you create your account.
+Once you created it, a pop up will appear to tell you if your account has been sucsessfully created or not and then leaves you to the Main Menu
+
+<img src="Assets/002.png" alt="Sign in Menu" width="250"/>
+
+### <a name="record"> Record Menu </a>
+<img src="Assets/004.png" alt="Record Menu" width="250"/>
+<img src="Assets/005.png" alt="Save File Menu" width="250"/>
+<img src="Assets/006.png" alt="Save File Alert" width="250"/>
+<img src="Assets/007.png" alt="App Directory" width="250"/>

@@ -20,6 +20,9 @@ let isAnimating = false;
 // The animation Speed (the refresh every x milliseconds) seems to be caped
 let animationSpeed = 30
 
+// How many index will the animation skip between two steps
+let indexJump = 1
+
 //Values used to correctly scale the plot layout
 let xMin,
     yMin,
@@ -165,18 +168,14 @@ function getDataStep(index) {
 function changeSpeed() {
     let speedValue = speedInput.value
 
-    if (speedValue == "" || Number(speedValue) < 5) {
+    if (speedValue == "") {
         return
     }
-    animationSpeed = 1000 / Number(speedValue)
+    indexJump = Number(speedValue)
     if (isAnimating) {
         stopAnimate()
         resume()
-    } else {
-        animation()
     }
-
-
 }
 
 
@@ -192,7 +191,7 @@ function animation() {
 
 //Simple incrementation used in the setInterval function
 function increment() {
-    stepIndex++;
+    stepIndex += indexJump;
     console.log(stepIndex)
     nextStep()
 }
@@ -265,6 +264,7 @@ function setDatas() {
                 y: 1,
                 z: 1
             },
+            width: 1000,
         },
         autoexpand: false,
         title: {

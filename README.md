@@ -9,6 +9,7 @@ Simple ARKit Motion Capture app with custom joints (not a .usdz model) and the a
 #### Content
 Skeleton of the main app with the possibility of creating accounts, logging in.
 The ARKit fonctionalities of the *JointsDetection* file has veend implemented with also the ability to capture and save the JSON file.
+The file is saved localy and can be interpreted by the local web page from the *JSON_Replay* folder. There's no interactions with any server.
 #### To be done
 - Responsive design (Only a responsive draft has been done)
 - Front / Visual update
@@ -54,12 +55,21 @@ In the *Record Menu*, you can [record a video of your patient](#recordVideo)
 Once you finished, the [*Save File Menu*](#save) will appear and you'll be able to save your video.
 Moreover, on the top of the window, there's a drop-down menu in which you can choose to disconnect or go to your settings.
 
-#### <a name="save"> Record Menu </a>
+#### <a name="save"> Save Menu </a>
 <center><img src="Assets/005.PNG" alt="Save File Menu" width="250"/></center>
 
 This menu appears after you recorded a video.
+It makes you able to save the datas you recorded in a json files.
+When you press the save button, it will be saved with the name you chose, if you didn't enter any name, the file will be save as Hospital_Medein_Date_Time.json and an [alert](#saveAlert) will pop.
 
+#### <a name="saveAlert"> Save Alert </a>
 <center><img src="Assets/006.PNG" alt="Save File Alert" width="250"/></center>
+
+After pressed the save button, this alert will pop to tell you that the file have been sucsessfully created and how it's named.
+
+#### <a> Directory </a>
 <center><img src="Assets/007.PNG" alt="App Directory" width="250"/></center>
+
+When your json file has been stored, you can find it in the application's directory.
 
 ### <a name="recordVideo">How to record a video</a>

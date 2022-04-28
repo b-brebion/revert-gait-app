@@ -46,10 +46,20 @@ Fields:
 
 In this menu, you can choose to connect in your account, if you already created it.
 Once you're connected, the application will automatically redirect you to the [*Record Menu*](#record).
+
 #### <a name="record"> Record Menu </a>
 <center><img src="Assets/004.PNG" alt="Record Menu" width="250"/></center>
 
+In the *Record Menu*, you can [record a video of your patient](#recordVideo)
+Once you finished, the [*Save File Menu*](#save) will appear and you'll be able to save your video.
+Moreover, on the top of the window, there's a drop-down menu in which you can choose to disconnect or go to your settings.
 
+#### <a name="save"> Record Menu </a>
 <center><img src="Assets/005.PNG" alt="Save File Menu" width="250"/></center>
+
+This menu appears after you recorded a video.
+
 <center><img src="Assets/006.PNG" alt="Save File Alert" width="250"/></center>
 <center><img src="Assets/007.PNG" alt="App Directory" width="250"/></center>
+
+### <a name="recordVideo">How to record a video</a>

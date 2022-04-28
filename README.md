@@ -31,17 +31,26 @@ Actions of every buttons on the Main Menu:
 - ReadMe: The documentation about a normal running of the app
 - Delete: Delete every person registered in the database (Has to be changed)
 
-#### <a>Sign in Menu</a>
+#### <a>Sign up Menu</a>
 <center>
 <img src="Assets/003.png" alt="Log in Menu" width="250"/>
 </center>
 
 This menu is where you create your account.
-Once you created it, a pop up will appear to tell you if your account has been sucsessfully created or not and then leaves you to the Main Menu
+Once you created it, a pop up will appear to tell you if your account has been sucsessfully created or not and then leaves you to the [*Main Menu*](#main)
 
+Fields:
+- Name
+- Family Name
+- Email
+- Hospital ID
+
+#### <a>Log in Menu</a>
+<center>
 <img src="Assets/002.png" alt="Sign in Menu" width="250"/>
+</center>
 
-### <a name="record"> Record Menu </a>
+#### <a name="record"> Record Menu </a>
 <img src="Assets/004.png" alt="Record Menu" width="250"/>
 <img src="Assets/005.png" alt="Save File Menu" width="250"/>
 <img src="Assets/006.png" alt="Save File Alert" width="250"/>

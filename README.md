@@ -9,13 +9,13 @@ Simple ARKit Motion Capture app with custom joints (not a .usdz model) and the a
 #### Content
 Skeleton of the main app with the possibility of creating accounts, logging in.
 The ARKit fonctionalities of the *JointsDetection* file has veend implemented with also the ability to capture and save the [JSON file](#json).
-The file is saved localy and can be interpreted by the local web page from the *JSON_Replay* folder. There's no interactions with any server.
+The file is saved localy and can be interpreted by the local web page from the [*JSON_Replay*](#replay) folder. There's no interactions with any server.
 #### To be done
 - Responsive design (Only a responsive draft has been done)
 - Front / Visual update
 - Update the ReadMe part on the app
 
-## :file_folder: JSON_Replay
+## :file_folder: <a name="replay">JSON_Replay</a>
 
 #### Content
 The Actual html page that allows you to visualize the animation from the json file you selected with 2 examples of json files.
@@ -49,7 +49,7 @@ The json file stored will be formatted as below:
 `"spine_5_joint":"SIMD3<Float>(3.116987, -0.5190891, -1.6164861)",`  
 `"hips_joint":"SIMD3<Float>(3.1043365, -0.7572989, -1.618672)"}`
 
-As you can see, in the json there is a key that correspond to the joint tracked wich is associated with 3 number that correspond to the position in space on this joint.
+As you can see, in the json there is a key that correspond to the joint tracked which is associated with 3 number that correspond to the position in space of this joint.
 
 ***(This format may change in the future)***
 
@@ -60,12 +60,12 @@ As you can see, in the json there is a key that correspond to the joint tracked 
 <center><img src="Assets/001.PNG" alt="Main Menu" width="250"/></center>
 
 This is the first menu you'll see after you launched the app.
-In this menu you have differents choices which are: Sign Up, Log In, ReadMe, Delete
+In this menu you have different choices which are: Sign Up, Log In, ReadMe and Delete.
 When you'll be connected, the app will automatically change the menu to the record one (see the [*Record Menu*](#record)).
 
 Actions of every buttons on the Main Menu:
-- Sign Up: Present the Sign up menu wich, as named, allows you to create a new account
-- Log in: Present the Log in menu wich allows you to connect to your account
+- Sign Up: Present the Sign up menu which, as named, allows you to create a new account
+- Log in: Present the Log in menu which allows you to connect to your account
 - ReadMe: The documentation about a normal running of the app
 - Delete: Delete every person registered in the database (Has to be changed)
 
@@ -90,7 +90,7 @@ Once you're connected, the application will automatically redirect you to the [*
 #### <a name="record"> Record Menu </a>
 <center><img src="Assets/004.PNG" alt="Record Menu" width="250"/></center>
 
-In the *Record Menu*, you can [record a video of your patient](#recordVideo)
+In the *Record Menu*, you can [record a video of your patient](#recordVideo).
 Once you finished, the [*Save File Menu*](#save) will appear and you'll be able to save your video.
 Moreover, on the top of the window, there's a drop-down menu in which you can choose to disconnect or go to your settings.
 
@@ -99,7 +99,7 @@ Moreover, on the top of the window, there's a drop-down menu in which you can ch
 
 This menu appears after you recorded a video.
 It makes you able to save the datas you recorded in a json files.
-When you press the save button, it will be saved with the name you chose, if you didn't enter any name, the file will be save as Hospital_Medein_Date_Time.json and an [alert](#saveAlert) will pop.
+When you press the save button, it will be saved with the name you chosed, if you didn't enter any name, by default the file will be save as *Hospital_Medein_Date_Time.json* and an [alert](#saveAlert) will pop.
 
 #### <a name="saveAlert"> Save Alert </a>
 <center><img src="Assets/006.PNG" alt="Save File Alert" width="250"/></center>

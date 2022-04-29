@@ -112,3 +112,5 @@ After pressed the save button, this alert will pop to tell you that the file hav
 When your json file has been stored, you can find it in the application's directory.
 
 ### <a name="recordVideo">How to record a video</a>
+
+This place will be remplaced by a video That show you how to record a video of a person 

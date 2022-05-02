@@ -111,6 +111,25 @@ After pressed the save button, this alert will pop to tell you that the file hav
 
 When your json file has been stored, you can find it in the application's directory.
 
+---
 ### <a name="recordVideo">How to record a video</a>
 
-This place will be remplaced by a video That show you how to record a video of a person 
+#### Step 1
+
+<img src="Assets/Screen1.png" alt="Save File Alert" width="250"/>
+
+Firstly, you have to be on the [*Record menu*](#record) to record your video.
+
+#### Step 2
+
+<img src="Assets/Screen2.png" alt="Save File Alert" width="250"/>
+
+Now that you're on this screen, you just need to aim to your patient.
+
+#### Step 3
+
+<img src="Assets/Screen3.png" alt="Save File Alert" width="250"/>
+
+Now just wait a bit that the application can tracks the joints (it may cause a little freeze of the camera while it's loading).
+
+When it's done, you can record your video by pressing the ***record*** button and stop it when you finished by pressing the ***Stop recording*** button. Then you'll be able to save your file in the [*Save File Menu*](#save).

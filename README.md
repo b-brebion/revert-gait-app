@@ -8,7 +8,7 @@ Simple ARKit Motion Capture app with custom joints (not a .usdz model) and the a
 ## :file_folder: MotionCapture
 #### Content
 Skeleton of the main app with the possibility of creating accounts, logging in.
-The ARKit fonctionalities of the *JointsDetection* file has veend implemented with also the ability to capture and save the [JSON file](#json).
+The ARKit fonctionalities of the *JointsDetection* file has been implemented with also the ability to capture and save the [JSON file](#json).
 The file is saved localy and can be interpreted by the local web page from the [*JSON_Replay*](#replay) folder. There's no interactions with any server.
 #### To be done
 - Responsive design (Only a responsive draft has been done)

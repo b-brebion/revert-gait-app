@@ -8,6 +8,7 @@ class CamViewVC: UIViewController, ARSessionDelegate {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var arView: ARView!
     @IBOutlet weak var recordBtn: UIButton!
+    @IBOutlet weak var animationButton: UIButton!
     
     // The 3D character to display.
     var character: BodyTrackedEntity?
@@ -309,6 +310,12 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
         print("Time (session)", Double(timeElapsed), "seconds")
          */
+    }
+    
+    @IBAction func showAnimationSegue(){
+        let webViewVC = self.storyboard?.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
+        webViewVC.modalPresentationStyle = .fullScreen
+        self.present(webViewVC, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

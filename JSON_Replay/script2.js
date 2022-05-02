@@ -247,7 +247,7 @@ function setDatas() {
             l: 0,
             r: 0,
             b: 0,
-            t: 0,
+            t: 100,
         },
         scene: {
             xaxis: {
@@ -271,8 +271,8 @@ function setDatas() {
             text: "jsonPlot",
             xanchor: "center"
         },
-        width: 1200,
-        height: 700,
+        width: 700,
+        height: 500,
         autosize: false
     };
     Plotly.newPlot('myDiv', data, layout);

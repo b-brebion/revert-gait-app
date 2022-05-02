@@ -294,7 +294,7 @@
                                 <rect key="frame" x="161" y="846" width="93" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Animation"/>
                                 <connections>
                                     <action selector="showAnimationSegue" destination="Vfx-5F-YDx" eventType="touchUpInside" id="kv3-U0-BBp"/>
                                 </connections>

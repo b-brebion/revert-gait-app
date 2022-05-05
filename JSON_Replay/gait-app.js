@@ -33,11 +33,11 @@ let xMax,
     zMax;
 
 // Declare of the interval variable wich allows to display things over time
-//let interval;
+let interval;
 
 aButtons.style.display = "none";
 
-//speedInput.addEventListener("input", changeSpeed);
+speedInput.addEventListener("input", changeSpeed);
 
 fileSelector.addEventListener('change', (event) => {
     //Display animation's Buttons
@@ -148,7 +148,11 @@ function getDataStep(index) {
     return joints
 }
 
-/*
+function animation() {
+
+}
+
+
 function changeSpeed() {
     let speedValue = speedInput.value
 
@@ -195,15 +199,16 @@ function stopAnimate() {
         isAnimating = false
     }
 }
-*/
+
 
 //load the next position of each points in the plot
 function nextStep() {
+    var joints = getDataStep(stepIndex)
     Plotly.animate('myDiv', {
         data: [{
-            x: [2, 3, 4],
-            y: [-1, -1, -1],
-            z: [-1, -1, -1],
+            x: joints['x'],
+            y: joints['y'],
+            z: joints['z'],
             mode: 'markers',
             marker: {
                 size: 12,
@@ -279,6 +284,7 @@ function setDatas() {
         },
         type: 'scatter3d'
     };
+    console.log(data)
     var layout = {
         margin: {
             l: 0,

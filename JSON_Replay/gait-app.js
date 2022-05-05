@@ -3,8 +3,9 @@ const aButtons = document.getElementById("animationButtons");
 const speedInput = document.getElementById("speedInput")
     // Les données du jon
 let datas = [];
-// les joints provenant du json sous forme de tableau associatif
-let joints = {};
+
+//json's keys
+let keys = [];
 
 //If a file has been selected or not
 let selectedFile = false;
@@ -32,11 +33,11 @@ let xMax,
     zMax;
 
 // Declare of the interval variable wich allows to display things over time
-let interval;
+//let interval;
 
 aButtons.style.display = "none";
 
-speedInput.addEventListener("input", changeSpeed);
+//speedInput.addEventListener("input", changeSpeed);
 
 fileSelector.addEventListener('change', (event) => {
     //Display animation's Buttons
@@ -50,28 +51,23 @@ fileSelector.addEventListener('change', (event) => {
         let resultat = event.target.result
         resultat = JSON.parse(resultat)
         let i = 0;
-        //console.log(resultat.length)
         //let domString = "\n"
         resultat.forEach(element => {
             var tabTmp = []
             for (const [key, value] of Object.entries(element)) {
                 //console.log(`${key}: ${value}`);
-                //console.log(i++)
                 //domString += `${key}: ${value}` + "\n"
                 tabTmp.push([key, value])
             }
-            //console.log(tabTmp)
             datas.push(tabTmp)
                 //domString += "\n"
                 /*
-                console.log(i++)
                 domString += Object.entries(element) + "\n\n"
                 */
         });
         //document.getElementById('monJson').innerText += domString
-        //console.log(resultat[0])
-        //console.log(datas)
         setDatas()
+        datas.reduce(setAllDatas, [])
     });
     reader.readAsText(fileList[0])
 
@@ -101,7 +97,6 @@ function createDico(i) {
 function getData(key, index) {
     var retour = ''
     datas[index].forEach((elt) => {
-        //console.log(elt)
         if (elt[0] == key) {
             retour = elt[1]
         }
@@ -118,18 +113,21 @@ function getData(key, index) {
 
 //return le tableau de donnée correspondant à l'étape donné en paramètre
 function getDataStep(index) {
-    //console.log(datas.length)
     if (index >= datas.length) {
         stopAnimate()
         return
     }
-    for (const key in joints) {
+
+    var joints = {
+        x: [],
+        y: [],
+        z: [],
+    }
+    keys.forEach((key) => {
         if (!isNaN(getData(key, 0)[0])) {
-            joints[key]['x'] = [getData(key, index)[0]]
-            joints[key]['z'] = [getData(key, index)[1]]
-            joints[key]['y'] = [getData(key, index)[2]]
-                //console.log(joints[key]['x'])
-                //console.log(getData(key, index)[0])
+            joints['x'].push(getData(key, index)[0])
+            joints['z'].push(getData(key, index)[1])
+            joints['y'].push(getData(key, index)[2])
             if (index == 0 && !isNaN(xMax)) {
                 xMin = Math.min(getData(key, index)[0], xMin)
                 yMin = Math.min(getData(key, index)[2], yMin)
@@ -146,25 +144,11 @@ function getDataStep(index) {
                 zMax = getData(key, index)[1]
             }
         }
-    }
-
-    /*
-    console.log("xMin:", xMin)
-    console.log("yMin:", yMin)
-    console.log("zMin:", zMin)
-    console.log("xMax:", xMax)
-    console.log("yMax:", yMax)
-    console.log("zMax:", zMax)
-    */
-
-    var data = [];
-    for (const key in joints) {
-        data.push(joints[key])
-            //console.log(joints[key])
-    }
-    return data
+    });
+    return joints
 }
 
+/*
 function changeSpeed() {
     let speedValue = speedInput.value
 
@@ -182,7 +166,6 @@ function changeSpeed() {
 //launch the animation if not already, Change the second parameter
 //of the setInterval function to change the speed animation
 function animation() {
-    console.log(animationSpeed)
     if (!isAnimating) {
         interval = setInterval(increment, animationSpeed);
         isAnimating = true
@@ -192,7 +175,6 @@ function animation() {
 //Simple incrementation used in the setInterval function
 function increment() {
     stepIndex += indexJump;
-    console.log(stepIndex)
     nextStep()
 }
 
@@ -213,11 +195,26 @@ function stopAnimate() {
         isAnimating = false
     }
 }
+*/
 
 //load the next position of each points in the plot
 function nextStep() {
     Plotly.animate('myDiv', {
-        data: getDataStep(stepIndex),
+        data: [{
+            x: [2, 3, 4],
+            y: [-1, -1, -1],
+            z: [-1, -1, -1],
+            mode: 'markers',
+            marker: {
+                size: 12,
+                line: {
+                    color: 'rgba(217, 217, 217, 0.14)',
+                    width: 0.5
+                },
+                opacity: 0.8
+            },
+            type: 'scatter3d'
+        }],
         traces: [0],
         layout: {}
     }, {
@@ -231,17 +228,57 @@ function nextStep() {
     })
 }
 
+/*
+function f(previousValue, currentValue){
+    return previousValue + currentValue
+}
+  
+*/
+//di = currentValue
+//acc = acc
+//i = currentIndex
+
+
+function setAllDatas(previousValue, currentValue, index) {
+    if (index % indexJump == 0) {}
+}
+
+function s() {
+    datas.reduce((acc, di, index) => {
+        if (index % indexJump == 0) {
+            di.forEach((jk, k) => {
+                ai += [jk]
+            });
+            acc.push([ai])
+        }
+    });
+}
+
 //initialise la vue plot avec les valeurs initiales du json
 //La ligne avec body orientation sera surement retirer par la suite ou recevra un traitement spécial
 function setDatas() {
     for (const [key] of datas[0]) {
-        if (key != 'bodyOrientation') {
-            joints[key] = createDico(0)
+        if (!isNaN(getData(key, 0)[0])) {
+            keys.push(key)
         }
     }
 
-    var data = getDataStep(0)
-    console.log(data)
+    var joints = getDataStep(0)
+    var data = {
+        x: joints['x'],
+        y: joints['y'],
+        z: joints['z'],
+        mode: 'markers',
+        marker: {
+            size: 12,
+            line: {
+                color: 'rgba(255, 217, 217, 0.14)',
+                width: 0.5
+            },
+            opacity: 0.8
+        },
+        type: 'scatter3d'
+    };
     var layout = {
         margin: {
             l: 0,
@@ -275,5 +312,5 @@ function setDatas() {
         height: 500,
         autosize: false
     };
-    Plotly.newPlot('myDiv', data, layout);
+    Plotly.newPlot('myDiv', [data], layout);
 }

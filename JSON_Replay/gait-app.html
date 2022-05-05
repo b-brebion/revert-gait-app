@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+</head>
+
+<body>
+
+    <p>
+        Here's a simple Plotly plot -
+        <a href="https://bit.ly/1Or9igj">plotly.js documentation</a>
+    </p>
+
+    <!-- Plots go in blank <div> elements.-->
+    <div id="myDiv"></div>
+
+    <div>
+        <!-- The `multiple` attribute lets users select multiple files. -->
+        <input type="file" id="file-selector" accept=".json">
+    </div>
+
+    <div id="animationButtons">
+        <button onclick="animation()">Start</button>
+        <button onclick="resume()">Resume</button>
+        <button onclick="stopAnimate()">Stop</button>
+    </div>
+    <div>
+        <span>Speed Animation Multiplier:</span><input type="number" id="speedInput">
+
+    </div>
+
+    <script src="./gait-app.js" charset="utf-8"></script>
+
+</body>
+
+</html>

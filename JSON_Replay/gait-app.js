@@ -7,6 +7,8 @@ let datas = [];
 //json's keys
 let keys = [];
 
+loadedDatas = []
+
 //If a file has been selected or not
 let selectedFile = false;
 
@@ -220,7 +222,7 @@ function nextStep() {
             },
             type: 'scatter3d'
         }],
-        traces: [0],
+        traces: [],
         layout: {}
     }, {
         transition: {
@@ -319,4 +321,36 @@ function setDatas() {
         autosize: false
     };
     Plotly.newPlot('myDiv', [data], layout);
+}
+
+Plotly.newPlot('div', [{
+    x: [1],
+    y: [0],
+    line: { simplify: false },
+}, {
+    x: [2],
+    y: [0.5],
+    line: { simplify: false },
+}, {
+    x: [3],
+    y: [1],
+    line: { simplify: false },
+}], {
+    height: 500,
+});
+
+function randomize() {
+    Plotly.animate('div', {
+        data: [{ y: [Math.random()] }, { y: [Math.random()] }],
+        traces: [0, 1],
+        layout: {}
+    }, {
+        transition: {
+            duration: 500,
+            easing: 'cubic-in-out'
+        },
+        frame: {
+            duration: 500
+        }
+    })
 }

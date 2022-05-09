@@ -8,7 +8,7 @@ class WebViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = Bundle.main.url(forResource: "test", withExtension: "html")
+        let url = Bundle.main.url(forResource: "gait-app", withExtension: "html")
         let myRequest = NSURLRequest(url: url!)
         webView.load(myRequest as URLRequest)
         

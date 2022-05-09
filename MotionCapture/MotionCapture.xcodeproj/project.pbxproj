@@ -25,9 +25,9 @@
 		14F4ACDF263C325A00D3CE76 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */; };
 		332AEA0A2808213A0003EDCA /* character in Resources */ = {isa = PBXBuildFile; fileRef = 332AEA092808213A0003EDCA /* character */; };
 		335DBD9A2809753F00D7C282 /* ReadMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DBD992809753F00D7C282 /* ReadMeVC.swift */; };
+		338011C728290E9E008D5963 /* gait-app.html in Resources */ = {isa = PBXBuildFile; fileRef = 338011C528290E9E008D5963 /* gait-app.html */; };
+		338011C828290E9E008D5963 /* gait-app.js in Resources */ = {isa = PBXBuildFile; fileRef = 338011C628290E9E008D5963 /* gait-app.js */; };
 		33C18308281FC32600215D67 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C18307281FC32600215D67 /* WebViewVC.swift */; };
-		33C1830B281FC61700215D67 /* script2.js in Resources */ = {isa = PBXBuildFile; fileRef = 33C18309281FC61700215D67 /* script2.js */; };
-		33C1830C281FC61700215D67 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 33C1830A281FC61700215D67 /* test.html */; };
 		33C7FA182805AC9A00D35BB0 /* CustomSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,9 +52,9 @@
 		14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		332AEA092808213A0003EDCA /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; name = character; path = ../../JointsDetection/JointsDetection/character; sourceTree = "<group>"; };
 		335DBD992809753F00D7C282 /* ReadMeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeVC.swift; sourceTree = "<group>"; };
+		338011C528290E9E008D5963 /* gait-app.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "gait-app.html"; path = "../../JSON_Replay/gait-app.html"; sourceTree = "<group>"; };
+		338011C628290E9E008D5963 /* gait-app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "gait-app.js"; path = "../../JSON_Replay/gait-app.js"; sourceTree = "<group>"; };
 		33C18307281FC32600215D67 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
-		33C18309281FC61700215D67 /* script2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = script2.js; path = ../../JSON_Replay/script2.js; sourceTree = "<group>"; };
-		33C1830A281FC61700215D67 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = test.html; path = ../../JSON_Replay/test.html; sourceTree = "<group>"; };
 		33C7FA172805AC9A00D35BB0 /* CustomSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSphere.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,10 +100,10 @@
 				1494329A26396975005ABAF1 /* User.swift */,
 				148ACCB92631B155002E3931 /* Assets.xcassets */,
 				148ACCBB2631B155002E3931 /* LaunchScreen.storyboard */,
-				33C18309281FC61700215D67 /* script2.js */,
-				33C1830A281FC61700215D67 /* test.html */,
 				148ACCB62631B152002E3931 /* Main.storyboard */,
 				148ACCB42631B152002E3931 /* MenuVC.swift */,
+				338011C528290E9E008D5963 /* gait-app.html */,
+				338011C628290E9E008D5963 /* gait-app.js */,
 				143706D82632CE6A000C9459 /* LogInVC.swift */,
 				143706DE26330500000C9459 /* CamViewVC.swift */,
 				145BA173263800D100C1B1FB /* SaveVC.swift */,
@@ -187,10 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				148ACCBD2631B155002E3931 /* LaunchScreen.storyboard in Resources */,
-				33C1830B281FC61700215D67 /* script2.js in Resources */,
-				33C1830C281FC61700215D67 /* test.html in Resources */,
+				338011C828290E9E008D5963 /* gait-app.js in Resources */,
 				148ACCBA2631B155002E3931 /* Assets.xcassets in Resources */,
 				332AEA0A2808213A0003EDCA /* character in Resources */,
+				338011C728290E9E008D5963 /* gait-app.html in Resources */,
 				148ACCB82631B152002E3931 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +384,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29T9L64KK2;
+				DEVELOPMENT_TEAM = 3TDA3DH474;
 				INFOPLIST_FILE = MotionCapture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

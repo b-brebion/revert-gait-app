@@ -15,9 +15,9 @@ class WebViewVC: UIViewController {
     }
 
     @IBAction func leaveButtonPressed(){
-        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-        menuVC.modalPresentationStyle = .fullScreen
-        self.present(menuVC, animated: true, completion: nil)
+        let camViewVC = self.storyboard?.instantiateViewController(withIdentifier: "CamViewVC") as! CamViewVC
+        camViewVC.modalPresentationStyle = .fullScreen
+        self.present(camViewVC, animated: true, completion: nil)
 
     }
     

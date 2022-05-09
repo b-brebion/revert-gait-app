@@ -42,7 +42,7 @@ class SaveVC: UIViewController {
     func alertEmpty(test: Bool){
         print(test)
         if test {
-            let alert = UIAlertController(title: "WARNING !", message: "you did not record anything,\n Be sure that joints appear when your recording people !", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "WARNING !", message: "you did not record anything,\n Be sure that joints appear when you're recording people !", preferredStyle: UIAlertController.Style.alert)
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
                 DispatchQueue.main.async {
                     self.dismiss(animated: true, completion: nil)

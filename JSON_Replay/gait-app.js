@@ -69,7 +69,7 @@ fileSelector.addEventListener('change', (event) => {
         });
         //document.getElementById('monJson').innerText += domString
         setDatas()
-        datas.reduce(setAllDatas, [])
+        loadDatas()
     });
     reader.readAsText(fileList[0])
 
@@ -149,11 +149,6 @@ function getDataStep(index) {
     });
     return joints
 }
-
-function animation() {
-
-}
-
 
 function changeSpeed() {
     let speedValue = speedInput.value
@@ -235,34 +230,19 @@ function nextStep() {
     })
 }
 
-/*
-function f(previousValue, currentValue){
-    return previousValue + currentValue
-}
-  
-*/
-//di = currentValue
-//acc = acc
-//i = currentIndex
 
-
-function setAllDatas(previousValue, currentValue, index) {
-    if (index % indexJump == 0) {}
-}
-
-function s() {
-    datas.reduce((acc, di, index) => {
+function loadDatas() {
+    loadedDatas = datas.reduce((acc, currentValue, index) => {
         if (index % indexJump == 0) {
-            di.forEach((jk, k) => {
-                ai += [jk]
-            });
-            acc.push([ai])
+            acc.push(getDataStep(index))
         }
+        return acc
     });
+    console.log("loadedDatas: ", loadedDatas)
+    console.log(datas)
 }
 
 //initialise la vue plot avec les valeurs initiales du json
-//La ligne avec body orientation sera surement retirer par la suite ou recevra un traitement spécial
 function setDatas() {
     for (const [key] of datas[0]) {
         if (!isNaN(getData(key, 0)[0])) {
@@ -324,16 +304,8 @@ function setDatas() {
 }
 
 Plotly.newPlot('div', [{
-    x: [1],
-    y: [0],
-    line: { simplify: false },
-}, {
-    x: [2],
-    y: [0.5],
-    line: { simplify: false },
-}, {
-    x: [3],
-    y: [1],
+    x: [1, 2, 3],
+    y: [0, 0.5, 1],
     line: { simplify: false },
 }], {
     height: 500,
@@ -341,8 +313,8 @@ Plotly.newPlot('div', [{
 
 function randomize() {
     Plotly.animate('div', {
-        data: [{ y: [Math.random()] }, { y: [Math.random()] }],
-        traces: [0, 1],
+        data: [{ y: [Math.random(), 1] }],
+        traces: [0],
         layout: {}
     }, {
         transition: {

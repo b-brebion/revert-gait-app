@@ -3,7 +3,12 @@ import UIKit
 class SaveVC: UIViewController {
     
     @IBOutlet weak var nomFichierField: UITextField!
+    @IBOutlet weak var hospitalField: UITextField!
     @IBOutlet weak var back: UIButton!
+    @IBOutlet weak var autoGenerateButton: UIButton!
+    
+    
+    var autoGenerate = false
     
     // Reference to managed object context
     let contexte = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -20,6 +25,12 @@ class SaveVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         */
+        
+        if (autoGenerate){
+            enableAutoGenerate()
+        } else {
+            disableAutoGenerate()
+        }
         
         fetchUser()
     }
@@ -84,6 +95,32 @@ class SaveVC: UIViewController {
             stringRetour = self.nomFichierField.text!
         }
         return stringRetour
+    }
+    
+    func enableAutoGenerate(){
+        hospitalField.isEnabled = true
+        nomFichierField.isEnabled = false
+        nomFichierField.text = ""
+        autoGenerateButton.setTitle("Disable Auto generate file name", for: .normal)
+        autoGenerateButton.setTitleColor(UIColor.red, for: .normal)
+    }
+    
+    func disableAutoGenerate(){
+        hospitalField.isEnabled = false
+        nomFichierField.isEnabled = true
+        nomFichierField.text = ""
+        autoGenerateButton.setTitle("Enable Auto generate file name", for: .normal)
+        autoGenerateButton.setTitleColor(UIColor.blue, for: .normal)
+    }
+    
+    @IBAction func toggleAutoGenerate(){
+        autoGenerate.toggle()
+        if (autoGenerate){
+            enableAutoGenerate()
+        }
+        else {
+            disableAutoGenerate()
+        }
     }
 
     // Saves the video's datas into a json file wich can ba neamed by the user or not

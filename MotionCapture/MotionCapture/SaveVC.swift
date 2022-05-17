@@ -100,7 +100,7 @@ class SaveVC: UIViewController {
         var stringRetour = ""
         if autoGenerate {
             if (self.hospitalField.text == ""){
-                
+                throw ValidationError.isEmpty
             }
             else{
                 let now = Date()
@@ -156,7 +156,8 @@ class SaveVC: UIViewController {
         do{
             filename = try nomFichier()
         }catch{
-            let alert = UIAlertController(title: "Missing File Name !", message: "You didn't enter any name for your file, be sure to enter a name in the field or to click on the auto generate file name button above.", preferredStyle: UIAlertController.Style.alert)
+            let errorMessage = autoGenerate ? "You didn't enter any name for your Hospital, be sure to enter a name in the field or to disable the auto generate file button and choose your file name." : "You didn't enter any name for your file, be sure to enter a name in the field or to click on the auto generate file name button above."
+            let alert = UIAlertController(title: "Missing File Name !", message: errorMessage, preferredStyle: UIAlertController.Style.alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)

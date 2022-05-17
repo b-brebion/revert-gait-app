@@ -49,9 +49,9 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         
         // If the iOS device doesn't support body tracking, raise a developer error for
         // this unhandled case.
-        /*guard ARBodyTrackingConfiguration.isSupported else {
+        guard ARBodyTrackingConfiguration.isSupported else {
             fatalError("This feature is only supported on devices with an A12 chip")
-        }*/
+        }
 
         // Run a body tracking configration.
         let configuration = ARBodyTrackingConfiguration()

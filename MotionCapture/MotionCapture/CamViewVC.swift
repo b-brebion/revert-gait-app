@@ -49,9 +49,9 @@ class CamViewVC: UIViewController, ARSessionDelegate {
         
         // If the iOS device doesn't support body tracking, raise a developer error for
         // this unhandled case.
-        guard ARBodyTrackingConfiguration.isSupported else {
+        /*guard ARBodyTrackingConfiguration.isSupported else {
             fatalError("This feature is only supported on devices with an A12 chip")
-        }
+        }*/
 
         // Run a body tracking configration.
         let configuration = ARBodyTrackingConfiguration()
@@ -84,17 +84,20 @@ class CamViewVC: UIViewController, ARSessionDelegate {
     // Setup the settings and disconnect buttons
     private func setupBarButtonItem() {
         let pullDownMenu = UIMenu(title: "", children: [
+            /*
             UIAction(title: "Settings", image: UIImage(systemName: "gearshape")) { action in
                 // Settings Menu Child Selected
                 let settingsVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
                 settingsVC.modalPresentationStyle = .automatic
                 self.present(settingsVC, animated: true, completion: nil)
             },
-            
-            UIAction(title: "Disconnect", image: UIImage(systemName: "power"), attributes: .destructive) { action in
+            */
+            UIAction(title: "Main Menu", image: UIImage(systemName: "power"), attributes: .destructive) { action in
                 // Disconnect Menu Child Selected
+                /*
                 let user = User.connectedUser()
                 User.connectDisconnect(name: user.name!, familyName: user.familyName!, state: false)
+                 */
                 let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
                 menuVC.modalPresentationStyle = .fullScreen
                 self.present(menuVC, animated: true, completion: nil)

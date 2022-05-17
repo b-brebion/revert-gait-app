@@ -36,7 +36,10 @@ class SaveVC: UIViewController {
         
         if let wasEnabled = UserDefaults.standard.object(forKey: "autoG") as? Bool{
             autoGenerate = wasEnabled;
-            print("ww:", wasEnabled)
+        }
+        
+        if let hospitalNamed = UserDefaults.standard.object(forKey: "hospitalF") as? String{
+            hospitalField.text = hospitalNamed
         }
         
         if (autoGenerate){
@@ -96,15 +99,19 @@ class SaveVC: UIViewController {
     func nomFichier() throws -> String {
         var stringRetour = ""
         if autoGenerate {
-            let now = Date()
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd_HH-mm-ss"
-            let connectedUser = getConnectedUser()
-            stringRetour = connectedUser.hospitalID! + "_" + connectedUser.familyName! + "_" + format.string(from: now)
+            if (self.hospitalField.text == ""){
+                
+            }
+            else{
+                let now = Date()
+                let format = DateFormatter()
+                format.dateFormat = "yyyy-MM-dd_HH-mm-ss"
+                stringRetour = self.hospitalField.text! + "_" + format.string(from: now)
+                UserDefaults.standard.set(hospitalField.text, forKey: "hospitalF")
+            }
         }
         else {
             if self.nomFichierField.text == ""{
-                
                 throw ValidationError.isEmpty
             } else {
                 stringRetour = self.nomFichierField.text!
@@ -139,9 +146,6 @@ class SaveVC: UIViewController {
         }
         print(autoGenerate)
         UserDefaults.standard.set(autoGenerate, forKey: "autoG")
-        if let wasEnabled = UserDefaults.standard.object(forKey: "autoG") as? Bool{
-            print("ws: ", wasEnabled)
-        }
     }
 
     // Saves the video's datas into a json file wich can ba neamed by the user or not

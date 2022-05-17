@@ -2,8 +2,8 @@ import UIKit
 
 class MenuVC: UIViewController {
     //@IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var signUpBtn: UIButton!
-    @IBOutlet weak var logInBtn: UIButton!
+    //@IBOutlet weak var signUpBtn: UIButton!
+    //@IBOutlet weak var logInBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,20 +14,28 @@ class MenuVC: UIViewController {
         //menuView.backgroundColor = UIColor(white: 1, alpha: 0.5)
         
         //menuView.addShadow(color: hexStringToUIColor(hex: "#FF2D55"))
+        /*
         signUpBtn.addShadow(color: hexStringToUIColor(hex: "#FF2D55"))
         logInBtn.addShadow(color: hexStringToUIColor(hex: "#7090B0"))
+         */
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         // If someone is already connected, switch to CamView scene
+        /*
         if User.isConnected() {
             let camViewVC = self.storyboard?.instantiateViewController(withIdentifier: "CamViewVC") as! CamViewVC
             camViewVC.modalPresentationStyle = .fullScreen
             self.present(camViewVC, animated: true, completion: nil)
         }
+         */
     }
     
-    @IBAction func cancelButton(_ segue: UIStoryboardSegue) {
+    @IBAction func camView(){
+        let camViewVC = self.storyboard?.instantiateViewController(withIdentifier: "CamViewVC") as! CamViewVC
+        camViewVC.modalPresentationStyle = .fullScreen
+        self.present(camViewVC, animated: true, completion: nil)
     }
     
     func hexStringToUIColor(hex: String) -> UIColor {
@@ -52,12 +60,14 @@ class MenuVC: UIViewController {
         )
     }
     
+    /*
     @IBAction func deleteBtn(_ sender: Any) {
         print(User.all.count)
         User.deleteAllData()
         try? AppDelegate.viewContext.save()
         print(User.all.count)
     }
+     */
 }
 
 // iOS bug for Pop Up Picker View (see: https://stackoverflow.com/questions/55653187/swift-default-alertviewcontroller-breaking-constraints)

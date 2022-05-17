@@ -102,7 +102,7 @@ Once your file has been saved an [alert](#saveAlert) will pop to confirm the fil
 After pressed the save button, this alert will pop to tell you that the file have been sucsessfully created and how it's named.
 
 #### <a> Directory </a>
-<center><img src="Assets/007.PNG" alt="App Directory" width="250"/></center>
+<center><img src="Assets/files.PNG" alt="App Directory" width="250"/></center>
 
 When your json file has been stored, you can find it in the application's directory.
 

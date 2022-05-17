@@ -18,7 +18,7 @@ The file is saved localy and can be interpreted by the local web page from the [
 ## <a name="replay">Visualization</a>
 
 #### Content
-To see the animation of the json file you stored, you can just go to this [link](#https://uartois-lml.github.io) then give your json to the website.
+To see the animation of the json file you stored, you can just go to this [link](https://uartois-lml.github.io) then give your json to the website.
 
 #### To be done
 - Change joint's color to put the same one for linked parts (same color for legs, arms etc)

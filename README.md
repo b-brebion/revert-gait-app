@@ -15,10 +15,10 @@ The file is saved localy and can be interpreted by the local web page from the [
 - Front / Visual update
 - Update the ReadMe part on the app
 
-## :file_folder: <a name="replay">JSON_Replay</a>
+## <a name="replay">Visualization</a>
 
 #### Content
-The Actual html page that allows you to visualize the animation from the json file you selected with 2 examples of json files.
+To see the animation of the json file you stored, you can just go to this [link](#https://uartois-lml.github.io) then give your json to the website.
 
 #### To be done
 - Change joint's color to put the same one for linked parts (same color for legs, arms etc)

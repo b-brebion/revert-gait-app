@@ -146,9 +146,16 @@
                         <viewLayoutGuide key="safeArea" id="9ci-VJ-fcG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eUe-4w-Hwa"/>
+                    <navigationItem key="navigationItem" id="eUe-4w-Hwa">
+                        <barButtonItem key="rightBarButtonItem" title="Main Menu" id="b0R-0W-eMK">
+                            <connections>
+                                <segue destination="RII-qB-wJW" kind="unwind" unwindAction="unwindToMainMenuWithUnwindSegue:" id="L6l-Zl-jUf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvh-1s-rId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="RII-qB-wJW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="963.30935251798564" y="1022.6130653266332"/>
         </scene>
@@ -309,9 +316,16 @@
                         <viewLayoutGuide key="safeArea" id="Qft-4T-CO6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="w64-Qe-Y2v"/>
+                    <navigationItem key="navigationItem" id="w64-Qe-Y2v">
+                        <barButtonItem key="rightBarButtonItem" title="Main Menu" id="nMR-Ef-KDB">
+                            <connections>
+                                <segue destination="mQo-VS-jmp" kind="unwind" unwindAction="unwindToMainMenuWithUnwindSegue:" id="zeo-eC-y6B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKq-Ki-deV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="mQo-VS-jmp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="226.61870503597123" y="1792.964824120603"/>
         </scene>
@@ -354,7 +368,13 @@
                         <viewLayoutGuide key="safeArea" id="gzr-Gm-JVZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cnw-bW-Jxe"/>
+                    <navigationItem key="navigationItem" id="cnw-bW-Jxe">
+                        <barButtonItem key="rightBarButtonItem" title="Main Menu" id="A1b-QW-z10">
+                            <connections>
+                                <segue destination="aWM-V4-q5v" kind="unwind" unwindAction="unwindToMainMenuWithUnwindSegue:" id="Dtw-WY-V6B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LP8-FR-f5A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="aWM-V4-q5v" userLabel="Exit" sceneMemberID="exit"/>
@@ -400,9 +420,16 @@
                         <viewLayoutGuide key="safeArea" id="2Je-G7-NM1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Dvb-pI-Yr9"/>
+                    <navigationItem key="navigationItem" id="Dvb-pI-Yr9">
+                        <barButtonItem key="rightBarButtonItem" title="Main Menu" id="vbk-ih-2Un">
+                            <connections>
+                                <segue destination="MZJ-j1-Lr6" kind="unwind" unwindAction="unwindToMainMenuWithUnwindSegue:" id="oDK-UK-tKW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh1-yM-tuz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="MZJ-j1-Lr6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="968.34532374100729" y="1795.9798994974874"/>
         </scene>

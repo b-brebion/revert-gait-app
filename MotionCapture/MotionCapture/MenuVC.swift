@@ -68,6 +68,10 @@ class MenuVC: UIViewController {
         print(User.all.count)
     }
      */
+    
+    @IBAction func unwindToMainMenu(unwindSegue: UIStoryboardSegue){
+        
+    }
 }
 
 // iOS bug for Pop Up Picker View (see: https://stackoverflow.com/questions/55653187/swift-default-alertviewcontroller-breaking-constraints)

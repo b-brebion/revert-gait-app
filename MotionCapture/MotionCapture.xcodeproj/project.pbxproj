@@ -25,6 +25,7 @@
 		14F4ACDF263C325A00D3CE76 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */; };
 		332AEA0A2808213A0003EDCA /* character in Resources */ = {isa = PBXBuildFile; fileRef = 332AEA092808213A0003EDCA /* character */; };
 		335DBD9A2809753F00D7C282 /* ReadMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335DBD992809753F00D7C282 /* ReadMeVC.swift */; };
+		337855C928352EB700316C74 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 337855C828352EB700316C74 /* README.md */; };
 		338011C728290E9E008D5963 /* gait-app.html in Resources */ = {isa = PBXBuildFile; fileRef = 338011C528290E9E008D5963 /* gait-app.html */; };
 		338011C828290E9E008D5963 /* gait-app.js in Resources */ = {isa = PBXBuildFile; fileRef = 338011C628290E9E008D5963 /* gait-app.js */; };
 		33C18308281FC32600215D67 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C18307281FC32600215D67 /* WebViewVC.swift */; };
@@ -52,6 +53,7 @@
 		14F4ACDE263C325A00D3CE76 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		332AEA092808213A0003EDCA /* character */ = {isa = PBXFileReference; lastKnownFileType = folder; name = character; path = ../../JointsDetection/JointsDetection/character; sourceTree = "<group>"; };
 		335DBD992809753F00D7C282 /* ReadMeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeVC.swift; sourceTree = "<group>"; };
+		337855C828352EB700316C74 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		338011C528290E9E008D5963 /* gait-app.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "gait-app.html"; path = "../../JSON_Replay/gait-app.html"; sourceTree = "<group>"; };
 		338011C628290E9E008D5963 /* gait-app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "gait-app.js"; path = "../../JSON_Replay/gait-app.js"; sourceTree = "<group>"; };
 		33C18307281FC32600215D67 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				1494329A26396975005ABAF1 /* User.swift */,
 				148ACCB92631B155002E3931 /* Assets.xcassets */,
 				148ACCBB2631B155002E3931 /* LaunchScreen.storyboard */,
+				337855C828352EB700316C74 /* README.md */,
 				148ACCB62631B152002E3931 /* Main.storyboard */,
 				148ACCB42631B152002E3931 /* MenuVC.swift */,
 				338011C528290E9E008D5963 /* gait-app.html */,
@@ -189,6 +192,7 @@
 				148ACCBD2631B155002E3931 /* LaunchScreen.storyboard in Resources */,
 				338011C828290E9E008D5963 /* gait-app.js in Resources */,
 				148ACCBA2631B155002E3931 /* Assets.xcassets in Resources */,
+				337855C928352EB700316C74 /* README.md in Resources */,
 				332AEA0A2808213A0003EDCA /* character in Resources */,
 				338011C728290E9E008D5963 /* gait-app.html in Resources */,
 				148ACCB82631B152002E3931 /* Main.storyboard in Resources */,

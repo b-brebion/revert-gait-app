@@ -2,8 +2,17 @@ import UIKit
 
 class SaveVC: UIViewController {
     
+    enum ValidationError: Error{
+        case isEmpty
+    }
+    
     @IBOutlet weak var nomFichierField: UITextField!
+    @IBOutlet weak var hospitalField: UITextField!
     @IBOutlet weak var back: UIButton!
+    @IBOutlet weak var autoGenerateButton: UIButton!
+    
+    
+    var autoGenerate = false
     
     // Reference to managed object context
     let contexte = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -22,6 +31,22 @@ class SaveVC: UIViewController {
         */
         
         fetchUser()
+        
+        print("auto:", autoGenerate)
+        
+        if let wasEnabled = UserDefaults.standard.object(forKey: "autoG") as? Bool{
+            autoGenerate = wasEnabled;
+        }
+        
+        if let hospitalNamed = UserDefaults.standard.object(forKey: "hospitalF") as? String{
+            hospitalField.text = hospitalNamed
+        }
+        
+        if (autoGenerate){
+            enableAutoGenerate()
+        } else {
+            disableAutoGenerate()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,7 +65,6 @@ class SaveVC: UIViewController {
     }
     
     func alertEmpty(test: Bool){
-        print(test)
         if test {
             let alert = UIAlertController(title: "WARNING !", message: "you did not record anything,\n Be sure that joints appear when you're recording people !", preferredStyle: UIAlertController.Style.alert)
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
@@ -72,26 +96,75 @@ class SaveVC: UIViewController {
         return paths[0]
     }
     
-    func nomFichier() -> String {
+    func nomFichier() throws -> String {
         var stringRetour = ""
-        if self.nomFichierField.text == ""{
-            let now = Date()
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd_HH-mm-ss"
-            let connectedUser = getConnectedUser()
-            stringRetour = connectedUser.hospitalID! + "_" + connectedUser.familyName! + "_" + format.string(from: now)
-        } else {
-            stringRetour = self.nomFichierField.text!
+        if autoGenerate {
+            if (self.hospitalField.text == ""){
+                throw ValidationError.isEmpty
+            }
+            else{
+                let now = Date()
+                let format = DateFormatter()
+                format.dateFormat = "yyyy-MM-dd_HH-mm-ss"
+                stringRetour = self.hospitalField.text! + "_" + format.string(from: now)
+                UserDefaults.standard.set(hospitalField.text, forKey: "hospitalF")
+            }
+        }
+        else {
+            if self.nomFichierField.text == ""{
+                throw ValidationError.isEmpty
+            } else {
+                stringRetour = self.nomFichierField.text!
+            }
         }
         return stringRetour
+    }
+    
+    func enableAutoGenerate(){
+        hospitalField.isEnabled = true
+        nomFichierField.isEnabled = false
+        nomFichierField.text = ""
+        autoGenerateButton.setTitle("Disable Auto generate file name", for: .normal)
+        autoGenerateButton.setTitleColor(UIColor.red, for: .normal)
+    }
+    
+    func disableAutoGenerate(){
+        hospitalField.isEnabled = false
+        nomFichierField.isEnabled = true
+        nomFichierField.text = ""
+        autoGenerateButton.setTitle("Enable Auto generate file name", for: .normal)
+        autoGenerateButton.setTitleColor(UIColor.blue, for: .normal)
+    }
+    
+    @IBAction func toggleAutoGenerate(){
+        autoGenerate.toggle()
+        if (autoGenerate){
+            enableAutoGenerate()
+        }
+        else {
+            disableAutoGenerate()
+        }
+        print(autoGenerate)
+        UserDefaults.standard.set(autoGenerate, forKey: "autoG")
     }
 
     // Saves the video's datas into a json file wich can ba neamed by the user or not
     @IBAction func saveFileButton(_ sender: Any) {
-        let connectedUser = getConnectedUser()
-        print("Hospital Id: " + connectedUser.hospitalID! + "\nnom: " + connectedUser.familyName!)
-        let filename = getDocumentsDirectory().appendingPathComponent(nomFichier() + ".json")
-        print(filename)
+        //let connectedUser = getConnectedUser()
+        //print("Hospital Id: " + connectedUser.hospitalID! + "\nnom: " + connectedUser.familyName!)
+        var filename = ""
+        do{
+            filename = try nomFichier()
+        }catch{
+            let errorMessage = autoGenerate ? "You didn't enter any name for your Hospital, be sure to enter a name in the field or to disable the auto generate file button and choose your file name." : "You didn't enter any name for your file, be sure to enter a name in the field or to click on the auto generate file name button above."
+            let alert = UIAlertController(title: "Missing File Name !", message: errorMessage, preferredStyle: UIAlertController.Style.alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        print("filename: ",filename)
         
         // If we need to encrypt our datas
         /*
@@ -131,7 +204,7 @@ class SaveVC: UIViewController {
             print(error)
         }
         //try? FileManager().createDirectory(at: pathDirectory, withIntermediateDirectories: true)
-        let filePath = pathDirectory.appendingPathComponent(nomFichier() + ".json")
+        let filePath = pathDirectory.appendingPathComponent(filename + ".json")
         
         // Save the JSON array in a file
         let json = try? JSONEncoder().encode(jsonArr)
@@ -141,7 +214,7 @@ class SaveVC: UIViewController {
             print("Failed to write JSON data: \(error.localizedDescription)")
         }
         
-        let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + nomFichier() + ".json)", preferredStyle: UIAlertController.Style.alert)        
+        let alert = UIAlertController(title: "Recording completed", message: "A file has been created with the recording data (" + filename + ".json)", preferredStyle: UIAlertController.Style.alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: { _ in
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)

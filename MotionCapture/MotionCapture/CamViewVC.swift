@@ -30,9 +30,9 @@ class CamViewVC: UIViewController, ARSessionDelegate {
      */
     
     // Array keeping track of the joints at each joints update
-    var jsonArr = [[String: String]]()
+    var jsonArr = [[String: [Float]]]()
     // Dictionary added to the aforementioned array at each update (1 dict = 1 frame)
-    var jsonDict: [String: String] = [:]
+    var jsonDict: [String: [Float]] = [:]
     
     let characterOffset: SIMD3<Float> = [-1.0, 0, 0] // Offset the character by one meter to the left
     let characterAnchor = AnchorEntity()
@@ -187,7 +187,7 @@ class CamViewVC: UIViewController, ARSessionDelegate {
             recordState = false
             
             //reset values after we sent them into the saveVC
-            jsonArr = [[String: String]]()
+            jsonArr = [[String: [Float]]]()
             jsonDict = [:]
         } else {
             // Start of recording
@@ -277,8 +277,10 @@ class CamViewVC: UIViewController, ARSessionDelegate {
                     
                     jsonDict = [:]
                     
-                    jsonDict["bodyPosition"] = bodyPosition.debugDescription
-                    jsonDict["bodyOrientation"] = bodyOrientation.debugDescription
+                    jsonDict["bodyPosition"] = [bodyPosition[0],bodyPosition[1],bodyPosition[2]]
+                    
+                    //exemple de bodyOrientation:  simd_quatf(real: 0.8878591, imag: SIMD3<Float>(-0.26770878, -0.34431118, 0.14658788))
+                    //jsonDict["bodyOrientation"] = [bodyOrientation[0],bodyOrientation[1],bodyOrientation[2]]
                     
                     for i in 0..<jointSpheres.count {
                         // Joint-by-joint update
@@ -290,7 +292,7 @@ class CamViewVC: UIViewController, ARSessionDelegate {
                             jointSpheres[i].orientation = bodyOrientation
                             
                             if trackedJoints.contains(jointName.rawValue) {
-                                jsonDict[jointName.rawValue] = position.description
+                                jsonDict[jointName.rawValue] = [position[0],position[1],position[2]]
                                 // jsonDict[jointName.rawValue] = transform.debugDescription
                             }
                         }

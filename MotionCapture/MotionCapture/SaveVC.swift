@@ -21,7 +21,7 @@ class SaveVC: UIViewController {
     var items:[User]?
     
     // Array keeping track of the joints at each joints update
-    var jsonArr = [[String: String]]()
+    var jsonArr = [[String: [Float]]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -32,6 +32,12 @@ class MenuVC: UIViewController {
          */
     }
     
+    @IBAction func showAnimationSegue(){
+        let webViewVC = self.storyboard?.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
+        webViewVC.modalPresentationStyle = .fullScreen
+        self.present(webViewVC, animated: true, completion: nil)
+    }
+    
     @IBAction func camView(){
         let camViewVC = self.storyboard?.instantiateViewController(withIdentifier: "CamViewVC") as! CamViewVC
         camViewVC.modalPresentationStyle = .fullScreen

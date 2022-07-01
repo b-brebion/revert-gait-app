@@ -50,6 +50,16 @@
                                     <action selector="camView" destination="BYZ-38-t0r" eventType="touchUpInside" id="97B-aR-bB5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcw-gQ-i3i">
+                                <rect key="frame" x="342" y="775" width="151" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Animation"/>
+                                <connections>
+                                    <action selector="showAnimationSegue" destination="Vfx-5F-YDx" eventType="touchUpInside" id="3Do-Ek-K0J"/>
+                                    <action selector="showAnimationSegue" destination="BYZ-38-t0r" eventType="touchUpInside" id="sSQ-Q5-0qM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -57,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-765.46762589928062" y="0.0"/>
+            <point key="canvasLocation" x="229" y="359"/>
         </scene>
         <!--Read MeVC-->
         <scene sceneID="Und-o3-GdE">
@@ -68,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1t-NI-ke7">
-                                <rect key="frame" x="302" y="917" width="100" height="50"/>
+                                <rect key="frame" x="302" y="913" width="100" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Continue"/>
@@ -77,14 +87,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome ! Here you can see how the app is running with some screens to help you." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTD-ZH-ndF">
-                                <rect key="frame" x="102" y="174" width="500" height="257"/>
+                                <rect key="frame" x="102" y="170" width="500" height="257"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ReadMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qv1-QG-5Xh">
-                                <rect key="frame" x="280" y="102" width="144" height="64"/>
+                                <rect key="frame" x="280" y="98" width="144" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
@@ -105,7 +115,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9q-7s-4k4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Nj4-mj-QWB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="226.61870503597123" y="1022.6130653266332"/>
+            <point key="canvasLocation" x="983" y="1066"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4fA-PU-fBO">
@@ -116,18 +126,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Step 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-wu-2Dk">
-                                <rect key="frame" x="280" y="40" width="144" height="63"/>
+                                <rect key="frame" x="280" y="36" width="144" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainMenuScreen" translatesAutoresizingMaskIntoConstraints="NO" id="cUW-RT-8ab">
-                                <rect key="frame" x="77" y="198" width="550" height="569"/>
+                                <rect key="frame" x="77" y="193" width="550" height="571"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irq-cy-FdW">
-                                <rect key="frame" x="314" y="917" width="75" height="50"/>
+                                <rect key="frame" x="314" y="914" width="75" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
@@ -136,7 +146,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click on the button &quot;Record a Video&quot; to go the the menu that will allow you to record your video." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFK-Fp-VFy">
-                                <rect key="frame" x="145" y="111" width="415" height="76"/>
+                                <rect key="frame" x="145" y="107" width="415" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -157,7 +167,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvh-1s-rId" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="RII-qB-wJW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="963.30935251798564" y="1022.6130653266332"/>
+            <point key="canvasLocation" x="1719" y="1066"/>
         </scene>
         <!--Log InVC-->
         <scene sceneID="NFb-BZ-YGz">
@@ -221,7 +231,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeI-HV-AUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="L0Y-YV-o4I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="102.89855072463769" y="358.92857142857139"/>
+            <point key="canvasLocation" x="-1491" y="382"/>
         </scene>
         <!--Cam ViewVC-->
         <scene sceneID="k7u-qZ-Hyz">
@@ -232,20 +242,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgv-m0-zP7">
-                                <rect key="frame" x="342" y="1080" width="151" height="35"/>
+                                <rect key="frame" x="342" y="1080" width="151" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="recordData:" destination="Vfx-5F-YDx" eventType="touchUpInside" id="K8n-U8-Xou"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kas-kz-dhv">
-                                <rect key="frame" x="342" y="1123" width="151" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Animation"/>
-                                <connections>
-                                    <action selector="showAnimationSegue" destination="Vfx-5F-YDx" eventType="touchUpInside" id="kv3-U0-BBp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71r-OA-Yyg">
@@ -266,7 +267,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Q5S-0k-3Bj"/>
                     <connections>
-                        <outlet property="animationButton" destination="kas-kz-dhv" id="djy-ab-1RQ"/>
                         <outlet property="arView" destination="Iga-xF-uZq" id="bf9-Dv-1V7"/>
                         <outlet property="menuButton" destination="71r-OA-Yyg" id="zmW-pW-ua5"/>
                         <outlet property="recordBtn" destination="bgv-m0-zP7" id="Pz8-2z-VtB"/>
@@ -286,18 +286,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CamView" translatesAutoresizingMaskIntoConstraints="NO" id="eZl-on-SNR">
-                                <rect key="frame" x="76" y="198" width="550" height="573"/>
+                                <rect key="frame" x="76" y="192" width="550" height="575"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Step 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvr-5v-Cpo">
-                                <rect key="frame" x="280" y="43" width="144" height="63"/>
+                                <rect key="frame" x="280" y="39" width="144" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp6-TC-cHx">
-                                <rect key="frame" x="314" y="917" width="75" height="50"/>
+                                <rect key="frame" x="314" y="913" width="75" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
@@ -306,7 +306,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Once you're ready to record, press the record buton." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1N-6f-VKp">
-                                <rect key="frame" x="151" y="114" width="400" height="72"/>
+                                <rect key="frame" x="151" y="110" width="400" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -327,7 +327,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKq-Ki-deV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="mQo-VS-jmp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="226.61870503597123" y="1792.964824120603"/>
+            <point key="canvasLocation" x="983" y="1837"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="IbF-uD-2NL">
@@ -338,18 +338,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="save" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-p0-Y0l">
-                                <rect key="frame" x="77" y="193" width="550" height="572"/>
+                                <rect key="frame" x="77" y="187" width="550" height="574"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Step 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAj-fO-b6j">
-                                <rect key="frame" x="280" y="43" width="144" height="63"/>
+                                <rect key="frame" x="280" y="39" width="144" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-Zn-zAP">
-                                <rect key="frame" x="292" y="917" width="120" height="50"/>
+                                <rect key="frame" x="292" y="913" width="120" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Main Menu"/>
@@ -358,7 +358,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Finally, you can choose to save or delete the file. You can choose to generate your file automatically or not." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86f-K9-3AG">
-                                <rect key="frame" x="100" y="114" width="503" height="72"/>
+                                <rect key="frame" x="100" y="110" width="503" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -379,7 +379,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LP8-FR-f5A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="aWM-V4-q5v" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="228.77697841726621" y="2481.9095477386936"/>
+            <point key="canvasLocation" x="985" y="2526"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pMd-LZ-Wpj">
@@ -390,18 +390,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Step 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiM-DP-rEU">
-                                <rect key="frame" x="280" y="43" width="144" height="63"/>
+                                <rect key="frame" x="280" y="39" width="144" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CamViewRecord" translatesAutoresizingMaskIntoConstraints="NO" id="7Yf-EB-9cW">
-                                <rect key="frame" x="77" y="198" width="550" height="571"/>
+                                <rect key="frame" x="77" y="193" width="550" height="572"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eW2-vY-lFo">
-                                <rect key="frame" x="314" y="917" width="75" height="50"/>
+                                <rect key="frame" x="314" y="913" width="75" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
@@ -410,7 +410,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Once the record is complete, press the &quot;Stop Recording&quot; button to be able to save your file or not." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8W-Vl-Cri">
-                                <rect key="frame" x="100" y="83" width="503" height="106"/>
+                                <rect key="frame" x="100" y="79" width="503" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -431,7 +431,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh1-yM-tuz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="MZJ-j1-Lr6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="968.34532374100729" y="1795.9798994974874"/>
+            <point key="canvasLocation" x="1724" y="1840"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="GQK-TD-h0e">
@@ -566,7 +566,7 @@
                                 </connections>
                             </button>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpo-bx-7dd">
-                                <rect key="frame" x="230" y="93" width="375" height="1008"/>
+                                <rect key="frame" x="206" y="93" width="423" height="1008"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -606,13 +606,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="File Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pzx-Ht-AVM">
-                                <rect key="frame" x="291" y="477" width="122" height="34"/>
+                                <rect key="frame" x="291" y="473" width="122" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISb-Sa-tb4">
-                                <rect key="frame" x="321" y="567" width="61" height="30"/>
+                                <rect key="frame" x="321" y="563" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save File"/>
                                 <connections>
@@ -620,7 +620,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2e-cv-Nq9">
-                                <rect key="frame" x="227" y="187" width="251" height="31"/>
+                                <rect key="frame" x="227" y="183" width="251" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Enable Auto generate file name"/>
@@ -629,7 +629,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hospital Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxJ-bh-Ust">
-                                <rect key="frame" x="291" y="247" width="122" height="34"/>
+                                <rect key="frame" x="291" y="243" width="122" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -726,7 +726,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rC3-RP-Qrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="zjz-Uq-sb2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="102.87769784172663" y="-317.58793969849245"/>
+            <point key="canvasLocation" x="-1491" y="-318"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kmS-SC-0wX">
@@ -745,7 +745,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7q-JK-6aS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-527.33812949640287" y="1022.6130653266332"/>
+            <point key="canvasLocation" x="229" y="1066"/>
         </scene>
     </scenes>
     <resources>

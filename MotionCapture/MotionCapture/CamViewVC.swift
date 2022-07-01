@@ -317,12 +317,6 @@ class CamViewVC: UIViewController, ARSessionDelegate {
          */
     }
     
-    @IBAction func showAnimationSegue(){
-        let webViewVC = self.storyboard?.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
-        webViewVC.modalPresentationStyle = .fullScreen
-        self.present(webViewVC, animated: true, completion: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSaveVC" {
             let savecVC = segue.destination as! SaveVC
